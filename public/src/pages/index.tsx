@@ -1,40 +1,31 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
+
+import type { GetStaticProps } from 'next';
+import type { HomepageProps } from './types';
+
 
 import client from '../../client'
 
 const inter = Inter({ subsets: ['latin'] })
 console.log('%c inter', 'color: HotPink;', inter);
 
-export async function getStaticPaths() {
-  const paths = await client.fetch(
-    `*[_type == "post" && defined(slug.current)][].slug.current`
-  )
-
-  return {
-    paths: paths.map((slug: string) => ({ params: { slug } })),
-    fallback: true,
-  }
-}
-
-export async function getStaticProps(context) {
-  // It's important to default the slug so that it doesn't return "undefined"
-  const { slug = "" } = context.params
-  const post = await client.fetch(`
-    *[_type == "home" && slug.current == $slug][0]
-  `, { slug })
+export const getStaticProps: GetStaticProps = async (context) => {
+  console.log('%c context', 'color: HotPink;', context);
+  const homepage = await client.fetch(`
+    *[_type == "homepage" && slug.current == "/"
+  `)
 
   return {
     props: {
-      post
+      homepage
     }
   }
 }
 
 
-export default function Home({ home }) {
+const Home: React.FC<HomepageProps> = ({ homepage }) => {
   return (
     <>
       <Head>
@@ -45,9 +36,11 @@ export default function Home({ home }) {
       </Head>
       <main className={styles.main}>
         <div className={styles.description}>
-          <h1>{home?.slug?.current}</h1>
+          <h1>{homepage?.slug?.current}</h1>
         </div>
       </main>
     </>
   )
 }
+
+export default Home;
