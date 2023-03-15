@@ -13,6 +13,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const homepage = await client.fetch(
     groq`*[_type == "homepage" ][0]`
   )
+  console.log('%c homepage', 'color: Yellow;', homepage);
 
   return {
     props: {
