@@ -14,7 +14,7 @@ console.log('%c inter', 'color: HotPink;', inter);
 export const getStaticProps: GetStaticProps = async (context) => {
   console.log('%c context', 'color: HotPink;', context);
   const homepage = await client.fetch(`
-    *[_type == "homepage" && slug.current == "/"
+    *[_type == "homepage" && slug.current == ""][0]
   `)
 
   return {
