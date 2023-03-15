@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { Inter } from 'next/font/google'
+// import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 
 import type { GetStaticProps } from 'next';
@@ -8,8 +8,8 @@ import type { HomepageProps } from '../../types';
 
 import { client } from '../../client'
 
-const inter = Inter({ subsets: ['latin'] })
-console.log('%c inter', 'color: HotPink;', inter);
+// const inter = Inter({ subsets: ['latin'] })
+// console.log('%c inter', 'color: HotPink;', inter);
 
 export const getStaticProps: GetStaticProps = async (context) => {
   console.log('%c context', 'color: HotPink;', context);
@@ -36,7 +36,8 @@ const Home: React.FC<HomepageProps> = ({ homepage }) => {
       </Head>
       <main className={styles.main}>
         <div className={styles.description}>
-          <h1>{homepage?.slug?.current}</h1>
+          <h1>Hello World</h1>
+          <h2>{homepage?.slug?.current}</h2>
         </div>
       </main>
     </>
