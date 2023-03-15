@@ -3,10 +3,10 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 
 import type { GetStaticProps } from 'next';
-import type { HomepageProps } from './types';
+import type { HomepageProps } from '../../types';
 
 
-import client from '../../client'
+import { client } from '../../client'
 
 const inter = Inter({ subsets: ['latin'] })
 console.log('%c inter', 'color: HotPink;', inter);

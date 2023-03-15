@@ -1,7 +1,7 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 
-import client from '../../client'
+import { client } from '../../client'
 
 export async function getStaticPaths() {
   const paths = await client.fetch(
