@@ -10,6 +10,7 @@ export interface Author {
 export interface Homepage {
 	author: Author;
 	slug: Slug;
+	title: string;
 }
 
 export interface HomepageProps {
