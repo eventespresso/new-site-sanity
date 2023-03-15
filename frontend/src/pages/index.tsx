@@ -1,5 +1,5 @@
 import Head from 'next/head'
-// import { Inter } from 'next/font/google'
+import groq from 'groq'
 import styles from '@/styles/Home.module.css'
 
 import type { GetStaticProps } from 'next';
@@ -8,14 +8,11 @@ import type { HomepageProps } from '../../types';
 
 import { client } from '../../client'
 
-// const inter = Inter({ subsets: ['latin'] })
-// console.log('%c inter', 'color: HotPink;', inter);
-
 export const getStaticProps: GetStaticProps = async (context) => {
   console.log('%c context', 'color: HotPink;', context);
-  const homepage = await client.fetch(`
-    *[_type == "homepage" && slug.current == ""][0]
-  `)
+  const homepage = await client.fetch(
+    groq`*[_type == "homepage" && slug.current == "homepage"][0]`
+  )
 
   return {
     props: {
