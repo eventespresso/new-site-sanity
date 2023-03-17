@@ -1,26 +1,25 @@
-$font-color-dark: hsl(207 15% 50%);
-$font-color-light: hsl(207 15% 65%);
+@import url('https://fonts.cdnfonts.com/css/groupe');
 
-:root {
-	--font-color: $font-color-dark;
-	--font-color-alt: $font-color-light;
-	--font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono',
-		'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
-	--font-sans-serif: system-ui, sans-serif;
+// font colors
+$font-color-dark: hsl(207 15% 25%);
+$font-color-light: hsl(207 15% 75%);
 
-	--link-color: hsl(207 65% 45%);
-	--link-color-hover: hsl(207 65% 55%);
-	--link-color-active: hsl(207 65% 35%);
-}
+$font-color: $font-color-dark;
+$font-color-alt: $font-color-light;
+
+// font family
+$font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono',
+	'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+$font-sans-serif: system-ui, sans-serif;
+$font-groupe: 'GROUPE', sans-serif;
+
+// links
+$link-color: hsl(207 65% 45%);
+$link-color-hover: hsl(207 65% 55%);
+$link-color-active: hsl(207 65% 35%);
+$link-color-disabled: hsl(207 25% 45%);
 
 @media (prefers-color-scheme: dark) {
-	:root {
-		--font-color: $font-color-light;
-		--font-color-alt: $font-color-dark;
-	}
-}
-
-a {
-	color: var(--link-color);
-	text-decoration: none;
+	$font-color: $font-color-light;
+	$font-color-alt: $font-color-dark;
 }
