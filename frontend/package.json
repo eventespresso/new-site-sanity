@@ -23,16 +23,17 @@
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
     "prettier": "^2.8.4",
+    "sass": "^1.59.3",
     "typescript": "^4.0.0"
   },
   "prettier": {
     "arrowParens": "always",
     "bracketSpacing": true,
     "endOfLine": "lf",
-    "jsxSingleQuote": true,
+    "jsxSingleQuote": false,
     "printWidth": 120,
     "semi": true,
-    "singleQuote": true,
+    "singleQuote": false,
     "tabWidth": 4,
     "trailingComma": "es5",
     "useTabs": true
