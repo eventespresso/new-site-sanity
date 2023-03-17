@@ -1,0 +1,33 @@
+@import './global/breakpoints';
+@import './global/padding_n_margins';
+
+.container {
+	box-sizing: border-box;
+	max-width: $phone;
+	margin-inline: auto;
+	padding-block: $padding-deafult;
+	padding-inline: $padding-smaller;
+
+	@media (min-width: $phone) {
+		max-width: $tablet;
+		padding-block: $padding-big;
+		padding-inline: $padding-small;
+	}
+
+	@media (min-width: $tablet) {
+		max-width: $desktop;
+		padding-block: $padding-bigger;
+		padding-inline: $padding-deafult;
+	}
+
+	@media (min-width: $desktop) {
+		max-width: $wide-screen;
+		padding-block: $padding-huge;
+		padding-inline: $padding-deafult;
+	}
+}
+
+.full_width {
+	width: 100%;
+	max-width: 100vw;
+}

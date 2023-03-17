@@ -1,0 +1,54 @@
+@import './global/colors';
+@import './global/padding_n_margins';
+@import url('https://fonts.cdnfonts.com/css/groupe');
+
+.header {
+	&__wrap {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		flex-wrap: nowrap;
+		// background-color: $color-charcoal;
+
+		@media (min-width: 480px) {
+			flex-direction: row;
+		}
+	}
+}
+
+.espresso_logo {
+	&__link {
+		align-items: center;
+		color: $color-white;
+		display: flex;
+	}
+	&__img {
+		--logo-size: 3rem;
+		aspect-ratio: 1;
+		// border-radius: 100%;
+		fill: white;
+		color: white;
+		background-color: white;
+		height: var(--logo-size);
+		width: var(--logo-size);
+		&_wrap {
+			// --wrap-size: 0.2rem;
+			// aspect-ratio: 1;
+			// background-color: $color-primary;
+			// border-radius: 100%;
+			// border: 2px solid white;
+			// box-sizing: border-box;
+			// height: calc(var(--logo-size) + var(--wrap-size));
+			margin-inline-end: $margin-deafult;
+			// padding: calc(var(--wrap-size) / 2);
+			// width: calc(var(--logo-size) + var(--wrap-size));
+			// box-shadow: 0 1px 2px hsla(199 5% 5% / 50%);
+		}
+	}
+	&__wordmark {
+		color: $color-white;
+		font-size: 2rem;
+		font-family: 'GROUPE', sans-serif;
+		letter-spacing: -2px;
+	}
+}
