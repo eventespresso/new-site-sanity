@@ -13,6 +13,6 @@ export interface Homepage {
 	title: string;
 }
 
-export interface HomepageProps {
-	homepage: Homepage;
+export interface ContentProps {
+	content: Homepage;
 }
