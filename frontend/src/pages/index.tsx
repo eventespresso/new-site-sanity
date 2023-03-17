@@ -3,33 +3,36 @@ import groq from 'groq'
 import { client } from '../../client'
 
 import type { GetStaticProps } from 'next';
-import type { HomepageProps } from '../../types';
+import type { ContentProps } from '../../types';
 
-import styles from '../styles/Homepage.module.scss'
+import home from '../styles/Homepage.module.scss'
 import layout from '@/styles/layout.module.scss'
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  console.log('%c context', 'color: HotPink;', context);
-  const queryResults = await client.fetch(
-    groq`*[_type == "homepage" ][0]`
+  // console.log('%c context', 'color: HotPink;', context);
+  const content = await client.fetch(
+    groq`*[_type == "homepage"][0]`
   )
-  console.log('%c queryResults', 'color: Yellow;', queryResults);
+  console.log('%c queryResults', 'color: Yellow;', content);
 
   return {
     props: {
-      queryResults
+      content
     }
   }
 }
 
 
-const Home: React.FC<HomepageProps> = ({ homepage }) => {
-  console.log('%c homepage', 'color: HotPink;', homepage);
+const Home: React.FC<ContentProps> = ({ content }) => {
+  console.log('%c homepage', 'color: HotPink;', content);
   return (
-    <div className={layout.container}>
-      <h1>title: {homepage?.title}</h1>
-    </div>
+    <section className={home.hero}>
+      <div className={layout.container}>
+        <h1>title: {content?.title}</h1>
+      </div>
+    </section>
   )
 }
+
 
 export default Home;
