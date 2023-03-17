@@ -1,7 +1,12 @@
+$font-color-dark: hsl(207 15% 50%);
+$font-color-light: hsl(207 15% 65%);
+
 :root {
-	--font-color: hsl(207 15% 25%);
+	--font-color: $font-color-dark;
+	--font-color-alt: $font-color-light;
 	--font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono',
 		'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+	--font-sans-serif: system-ui, sans-serif;
 
 	--link-color: hsl(207 65% 45%);
 	--link-color-hover: hsl(207 65% 55%);
@@ -10,7 +15,8 @@
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		--font-color: hsl(207 15% 65%);
+		--font-color: $font-color-light;
+		--font-color-alt: $font-color-dark;
 	}
 }
 
