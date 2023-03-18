@@ -5,7 +5,7 @@ import { client } from '../../client'
 import type { GetStaticProps } from 'next';
 import type { ContentProps } from '../../types';
 
-import layout from '@/styles/layout.module.scss'
+import layout from '@/styles/Layout.module.scss'
 
 export const getStaticProps: GetStaticProps = async (context) => {
   console.log('%c context', 'color: HotPink;', context);
