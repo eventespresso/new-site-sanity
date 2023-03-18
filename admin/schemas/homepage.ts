@@ -20,35 +20,45 @@ export default {
 			},
 		}),
 		defineField({
-			name: 'author',
-			title: 'Author',
-			type: 'reference',
-			to: { type: 'author' },
+			name: 'hero_tagline_1',
+			title: 'Hero Section Tagline 1',
+			type: 'string',
 		}),
 		defineField({
-			name: 'mainImage',
-			title: 'Main image',
-			type: 'image',
-			options: {
-				hotspot: true,
-			},
+			name: 'hero_tagline_2',
+			title: 'Hero Section Tagline 2',
+			type: 'string',
 		}),
-		defineField({
-			name: 'categories',
-			title: 'Categories',
-			type: 'array',
-			of: [{ type: 'reference', to: { type: 'category' } }],
-		}),
-		defineField({
-			name: 'publishedAt',
-			title: 'Published at',
-			type: 'datetime',
-		}),
-		defineField({
-			name: 'body',
-			title: 'Body',
-			type: 'blockContent',
-		}),
+		// defineField({
+		// 	name: 'author',
+		// 	title: 'Author',
+		// 	type: 'reference',
+		// 	to: { type: 'author' },
+		// }),
+		// defineField({
+		// 	name: 'mainImage',
+		// 	title: 'Main image',
+		// 	type: 'image',
+		// 	options: {
+		// 		hotspot: true,
+		// 	},
+		// }),
+		// defineField({
+		// 	name: 'categories',
+		// 	title: 'Categories',
+		// 	type: 'array',
+		// 	of: [{ type: 'reference', to: { type: 'category' } }],
+		// }),
+		// defineField({
+		// 	name: 'publishedAt',
+		// 	title: 'Published at',
+		// 	type: 'datetime',
+		// }),
+		// defineField({
+		// 	name: 'body',
+		// 	title: 'Body',
+		// 	type: 'blockContent',
+		// }),
 	],
 
 	preview: {
