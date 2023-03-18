@@ -14,15 +14,11 @@ import layout from '@/styles/Layout.module.scss'
 
 export const getStaticProps: GetStaticProps = async (context) => {
   // console.log('%c context', 'color: HotPink;', context);
-  const content = await client.fetch(
-    groq`*[_type == "homepage"][0]`
-  )
+  const content = await client.fetch(`*[_type == "homepage"][0]`);
   console.log('%c queryResults', 'color: Yellow;', content);
 
   return {
-    props: {
-      content
-    }
+    props: { content }
   }
 }
 
