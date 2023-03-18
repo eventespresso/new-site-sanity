@@ -1,0 +1,59 @@
+@import './global/breakpoints';
+@import './global/colors';
+@import './global/fonts';
+@import './global/padding_n_margins';
+
+.btn {
+	align-items: center;
+	border-radius: 0.25rem;
+	border-style: solid;
+	border-width: 2px;
+	box-sizing: border-box;
+	display: inline-flex;
+	flex-direction: row;
+	font-size: 0.75rem;
+	height: fit-content;
+	justify-content: center;
+	padding-block: $padding-micro;
+	padding-inline: $padding-smaller;
+	white-space: nowrap;
+
+	@media (min-width: $phone) {
+		font-size: 0.875rem;
+		padding-block: $padding-tiny;
+		padding-inline: $padding-small;
+		flex-wrap: nowrap;
+	}
+	@media (min-width: $tablet) {
+		font-size: 1rem;
+		padding-block: $padding-smaller;
+		padding-inline: $padding-default;
+	}
+
+	&__buy_now {
+		background: $color-pop;
+		border-color: $color-pop;
+		box-shadow: $color-pop-box-shadow;
+		color: white !important;
+		text-transform: uppercase;
+
+		// &:hover,
+		// &:active,
+		// &:focus,
+		// &:focus-visible {
+		// 	// color: white;
+		// }
+	}
+
+	&__pricing {
+		background: $color-secondary;
+		border-color: $color-secondary;
+		box-shadow: $color-secondary-box-shadow;
+		color: white !important;
+		text-transform: capitalize;
+	}
+
+	+ .btn {
+		margin-inline-start: $margin-default;
+	}
+}
