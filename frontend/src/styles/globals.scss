@@ -1,9 +1,6 @@
-@import './global/buttons';
+@import './global/breakpoints';
 @import './global/colors';
 @import './global/fonts';
-
-$bg-color-light-mode: hsl(199 100% 55%);
-$bg-color-dark-mode: hsl(199 25% 25%);
 
 * {
 	box-sizing: border-box;
@@ -21,7 +18,7 @@ body,
 }
 
 body {
-	background: $bg-color-light-mode;
+	background: $bg-color;
 	color: $font-color;
 	font-family: $font-sans-serif;
 }
@@ -44,7 +41,24 @@ a {
 	html {
 		color-scheme: dark;
 	}
-	body {
-		background: $bg-color-dark-mode;
-	}
 }
+
+// .homepage {
+// 	.hero_section {
+// 		background-image: url(../../public/289shots_so.png);
+// 		background-repeat: no-repeat;
+// 		background-position: center top 7.5rem;
+// 		background-size: contain;
+// 		padding-block-start: 0;
+
+// 		@media (min-width: $phone) {
+// 			background-position: center top;
+// 		}
+// 		@media (min-width: $tablet) {
+// 			background-position: right -2rem top 2rem;
+// 		}
+// 		@media (min-width: $desktop) {
+// 			background-position: right -2rem top 4rem;
+// 		}
+// 	}
+// }

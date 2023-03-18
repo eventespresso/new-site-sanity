@@ -1,3 +1,8 @@
+@import './global/breakpoints';
+@import './global/colors';
+@import './global/fonts';
+@import './global/padding_n_margins';
+
 .bg {
 	background-image: url(../../public/pexels-mark-angelo-sampan-1587927.jpg);
 	background-position: center;
@@ -11,11 +16,119 @@
 }
 
 .hero {
-	background-image: url(../../public/289shots_so.png);
-	background-repeat: no-repeat;
-	background-position: right -4rem top;
-	background-size: contain;
-	min-height: 100vh;
+	box-sizing: border-box;
+	display: grid;
+	grid-template-areas: 'header' 'screenshot' 'text' 'call-to-actions';
+
+	grid-template-columns: 1fr;
+	flex-wrap: nowrap;
+	// min-height: 24rem;
+	width: 100%;
+
+	@media (min-width > $phone) {
+		// min-height: 32rem;
+		grid-template-areas: 'header' 'screenshot' 'text' 'call-to-actions';
+	}
+	@media (min-width > $phone-hrz) {
+		// min-height: 32rem;
+		grid-template-areas:
+			'header screenshot'
+			'text screenshot'
+			'call-to-actions screenshot';
+	}
+	@media (min-width: $tablet) {
+		// min-height: 30rem;
+		grid-template-areas:
+			'header screenshot'
+			'text screenshot'
+			'call-to-actions screenshot';
+		grid-template-columns: 30rem 1fr;
+	}
+	@media (min-width: $desktop) {
+		grid-template-columns: 40rem 1fr;
+		// min-height: 48rem;
+	}
+
+	h1 {
+		color: $font-color-dark;
+		display: flex;
+		flex-direction: column;
+		grid-area: header;
+		font-size: 2rem;
+		line-height: 1;
+		margin-block-end: $margin-default;
+		margin-inline: $margin-tiny;
+		text-shadow: $text-shadow;
+
+		.the_best {
+			color: $color-pop;
+			font-size: 2rem;
+		}
+		.wordpress {
+			color: $color-compliment;
+		}
+
+		@media (min-width: $phone) {
+			font-size: 2.5rem;
+		}
+		@media (min-width: $tablet) {
+			font-size: 3.25rem;
+		}
+		@media (min-width: $desktop) {
+			font-size: 4.25rem;
+		}
+	}
+
+	img {
+		box-sizing: border-box;
+		grid-area: screenshot;
+		padding-block: $margin-small;
+		height: auto;
+		width: 100%;
+		@media (min-width: $tablet) {
+			grid-column: 2 / 3;
+			grid-row: 1 / 4;
+		}
+	}
+
+	&_text {
+		grid-area: text;
+		font-size: 0.9rem;
+
+		P {
+			margin-block-end: $margin-default;
+			margin-inline: $margin-tiny;
+		}
+		// box-sizing: border-box;
+		// max-width: $phone;
+		// padding-block: 0; //$padding-default;
+		// padding-inline: $padding-smaller;
+
+		@media (min-width: $phone) {
+			font-size: 1rem;
+			// 	max-width: $tablet;
+			// 	padding-block: $padding-big;
+			// 	padding-inline: $padding-small;
+		}
+
+		@media (min-width: $tablet) {
+			font-size: 1.1rem;
+			// 	max-width: calc($desktop / 2.5);
+			// 	padding-block: $padding-bigger;
+			// 	padding-inline: $padding-default;
+		}
+
+		@media (min-width: $desktop) {
+			font-size: 1.25rem;
+			// 	max-width: calc($wide-screen / 2.5);
+			// 	padding-block: $padding-huge;
+			// 	padding-inline: $padding-default;
+		}
+	}
+
+	.call_to_actions {
+		display: flex;
+	}
 }
 
 .description {

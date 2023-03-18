@@ -1,4 +1,57 @@
+$bg-color-light-mode: hsl(199 100% 55%);
+$bg-color-dark-mode: hsl(199 25% 25%);
+
 $color-primary: hsl(199 100% 38%);
-$color-secondary: hsl(133 48% 48%);
+$color-primary-dark: hsl(199 100% 18%);
+$color-primary-highlight: hsla(199 100% 75% / 60%);
+$color-primary-shadow-hard: hsla(199 100% 10% / 60%);
+$color-primary-shadow-soft: hsla(199 100% 5% / 15%);
+$color-primary-box-shadow: 0.025rem 1px 1px $color-primary-shadow-hard, 1px 1px 3px $color-primary-shadow-soft,
+	-1px -1px 1px $color-primary-highlight;
+
+$color-compliment: hsl(231 90% 55%);
+$color-compliment-dark: hsl(231 90% 35%);
+$color-compliment-highlight: hsla(231 90% 75% / 60%);
+$color-compliment-shadow-hard: hsla(231 90% 10% / 60%);
+$color-compliment-shadow-soft: hsla(231 90% 5% / 15%);
+$color-compliment-box-shadow: 0.025rem 1px 1px $color-primary-shadow-hard, 1px 1px 3px $color-primary-shadow-soft,
+	-1px -1px 1px $color-primary-highlight;
+
+$color-secondary: hsl(230 30% 57%);
+$color-secondary-highlight: hsla(230 30% 75% / 60%);
+$color-secondary-shadow-hard: hsla(230 30% 10% / 60%);
+$color-secondary-shadow-soft: hsla(230 30% 5% / 15%);
+$color-secondary-box-shadow: 0.025rem 1px 1px $color-secondary-shadow-hard, 1px 1px 3px $color-secondary-shadow-soft,
+	-1px -1px 1px $color-secondary-highlight;
+
+$color-alternate: hsl(141 100% 35%);
+$color-alternate-highlight: hsla(141 100% 75% / 60%);
+$color-alternate-shadow-hard: hsla(141 100% 10% / 60%);
+$color-alternate-shadow-soft: hsla(141 100% 5% / 15%);
+$color-alternate-box-shadow: 0.025rem 1px 1px $color-alternate-shadow-hard, 1px 1px 3px $color-alternate-shadow-soft,
+	-1px -1px 1px $color-alternate-highlight;
+
+$color-accent: hsl(346 67% 44%);
+$color-accent-highlight: hsla(346 67% 75% / 60%);
+$color-accent-shadow-hard: hsla(346 67% 10% / 60%);
+$color-accent-shadow-soft: hsla(346 67% 5% / 15%);
+$color-accent-box-shadow: 0.025rem 1px 1px $color-accent-shadow-hard, 1px 1px 3px $color-accent-shadow-soft,
+	-1px -1px 1px $color-accent-highlight;
+
+$color-pop: hsl(333 85% 60%);
+$color-pop-highlight: hsla(333 100% 80% / 60%);
+$color-pop-shadow-hard: hsla(333 85% 10% / 60%);
+$color-pop-shadow-soft: hsla(333 85% 5% / 15%);
+$color-pop-box-shadow: 0.025rem 1px 1px $color-pop-shadow-hard, 1px 1px 3px $color-pop-shadow-soft,
+	-1px -1px 1px $color-pop-highlight;
+// box-shargb(48, 35, 41) hsla(231 50% 5% / 60%), 1px 1px 3px hsla(231 100% 5% / 15%),
+// 	-1px -1px 1px hsla(231 75% 70% / 60%);
+
 $color-white: hsl(199 0% 100%);
 $color-charcoal: hsl(199 15% 25%);
+
+$bg-color: $bg-color-light-mode;
+
+@media (prefers-color-scheme: dark) {
+	$bg-color: $bg-color-dark-mode;
+}

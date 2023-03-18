@@ -1,5 +1,5 @@
 // font colors
-$font-color-dark: hsl(207 15% 25%);
+$font-color-dark: hsl(207 15% 20%);
 $font-color-light: hsl(207 15% 75%);
 
 $font-color: $font-color-dark;
@@ -16,6 +16,9 @@ $link-color: hsl(207 65% 45%);
 $link-color-hover: hsl(207 65% 55%);
 $link-color-active: hsl(207 65% 35%);
 $link-color-disabled: hsl(207 25% 45%);
+
+$text-shadow: 0px 0.025rem 0 hsla(207 0% 0% / 35%);
+$text-shadow-white: 0px 0.025rem 0 hsla(207 0% 100% / 75%);
 
 @media (prefers-color-scheme: dark) {
 	$font-color: $font-color-light;
