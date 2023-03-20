@@ -1,22 +1,20 @@
 import groq from 'groq'
 import Image from 'next/image'
 import { Link } from '@chakra-ui/next-js'
+import { Container, HStack, useColorMode } from '@chakra-ui/react'
 
 import { client } from '../../client'
 import eventEspressoAdmin from '../../public/event_espresso_admin_screenshot.png'
 
-import type { GetStaticProps } from 'next';
+import type { GetStaticProps } from 'next'; // GetStaticPaths, GetServerSideProps
 import type { ContentProps } from '../../types';
 
 import buttons from '@/styles/Buttons.module.scss'
 import home from '@/styles/Homepage.module.scss'
-import layout from '@/styles/Layout.module.scss'
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  // console.log('%c context', 'color: HotPink;', context);
+  console.log('%c context', 'color: HotPink;', context);
   const content = await client.fetch(`*[_type == "homepage"][0]`);
-  console.log('%c queryResults', 'color: Yellow;', content);
-
   return {
     props: { content }
   }
@@ -26,7 +24,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 const Home: React.FC<ContentProps> = ({ content }) => {
   console.log('%c homepage', 'color: HotPink;', content);
   return (
-    <section className={`${layout.container} hero_section`}>
+    <Container as='section' className='hero_section'>
       <div className={home.hero}>
         <h1>
           <span className={home.the_best}>the best</span>
@@ -48,7 +46,7 @@ const Home: React.FC<ContentProps> = ({ content }) => {
           </Link>
         </div>
       </div>
-    </section>
+    </Container>
   )
 }
 
