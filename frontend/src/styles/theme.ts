@@ -1,6 +1,15 @@
 import { extendTheme } from '@chakra-ui/react';
+import { mode } from '@chakra-ui/theme-tools';
+import type { StyleFunctionProps } from '@chakra-ui/styled-system';
 
 const theme = extendTheme({
+	breakpoints: {
+		sm: '27em', // 432px
+		md: '48em', // 768px
+		lg: '64em', // 1024px
+		xl: '80em', // 1280px
+		'2xl': '96em', // 1536px
+	},
 	colors: {
 		transparent: 'transparent',
 		black: '#000',
@@ -114,20 +123,31 @@ const theme = extendTheme({
 			'900': '#2F0417',
 		},
 		gray: {
-			'50': '#F2F2F3',
-			'100': '#DADBDC',
-			'200': '#C3C3C6',
-			'300': '#ABACB0',
-			'400': '#939499',
-			'500': '#7C7D83',
-			'600': '#636469',
-			'700': '#4A4B4F',
-			'800': '#323234',
-			'900': '#19191A',
+			'50': '#F1F3F4',
+			'100': '#D7DDDF',
+			'200': '#BEC7CB',
+			'300': '#A4B1B7',
+			'400': '#8B9BA2',
+			'500': '#71858E',
+			'600': '#5A6A72',
+			'700': '#445055',
+			'800': '#2D3539',
+			'900': '#171B1C',
 		},
 	},
-	initialColorMode: 'system',
-	useSystemColorMode: true,
+	config: {
+		initialColorMode: 'system',
+		useSystemColorMode: true,
+	},
+	styles: {
+		global: (props: StyleFunctionProps) => ({
+			body: {
+				fontFamily: 'system-ui, sans-serif',
+				color: mode('grey.800', 'grey.50')(props),
+				bg: mode('cyan.500', 'cyan.900')(props),
+			},
+		}),
+	},
 });
 
 export default theme;
