@@ -1,6 +1,6 @@
 import groq from 'groq'
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from '@chakra-ui/next-js'
 
 import { client } from '../../client'
 import eventEspressoAdmin from '../../public/event_espresso_admin_screenshot.png'
@@ -40,10 +40,10 @@ const Home: React.FC<ContentProps> = ({ content }) => {
         </div>
         <Image src={eventEspressoAdmin} alt='screenshot of event espresso admin page' />
         <div className={home.call_to_actions}>
-          <Link href="/buy-now" className={`${buttons.btn} ${buttons.btn__buy_now}`}>
+          <Link href="/buy-now" className={`${buttons.button} ${buttons.button__big} ${buttons.button__buy_now}`}>
             Buy Now
           </Link>
-          <Link href="/pricing" className={`${buttons.btn} ${buttons.btn__pricing}`}>
+          <Link href="/pricing" className={`${buttons.button} ${buttons.button__big} ${buttons.button__pricing}`}>
             See Pricing Plans
           </Link>
         </div>

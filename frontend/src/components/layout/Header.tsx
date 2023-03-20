@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from '@chakra-ui/next-js'
 import buttons from '@/styles/Buttons.module.scss'
 import styles from '@/styles/Header.module.scss'
 import layout from '@/styles/Layout.module.scss'
@@ -34,7 +34,7 @@ const Header: React.FC = () => {
 					<Link href="/account" className={styles.nav_link}>
 						my account
 					</Link>
-					<Link href="/buy-now" className={`${buttons.btn} ${buttons.btn__buy_now}`}>
+					<Link href="/buy-now" className={`${buttons.button} ${buttons.button__small} ${buttons.button__buy_now}`}>
 						Buy Now
 					</Link>
 				</div>
