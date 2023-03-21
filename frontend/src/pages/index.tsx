@@ -1,6 +1,6 @@
 import groq from 'groq'
 import { Link } from '@chakra-ui/next-js'
-import { Box, Button, Grid, GridItem, Heading, HStack, Img, LightMode, Text, VStack, colorMode } from '@chakra-ui/react'
+import { Box, Button, Grid, GridItem, Heading, HStack, Img, LightMode, Text, VStack, useColorMode } from '@chakra-ui/react'
 
 import { client } from '../../client'
 // import eventEspressoAdmin from '../../public/event_espresso_admin_screenshot.png'
@@ -47,12 +47,13 @@ const bodyFontSize = {
   tablet: 'xl',
   desktop: '2xl',
 };
-// Here's the signature
-const color = colorMode === 'light' ? 'gray.800' : 'gray.100';
-console.log('%c colorMode', 'color: HotPink;', colorMode);
 
 const Home: React.FC<ContentProps> = ({ content }) => {
   console.log('%c homepage', 'color: HotPink;', content);
+
+  const { colorMode } = useColorMode();
+  const color = colorMode === 'light' ? 'gray.800' : 'gray.100';
+  console.log('%c colorMode', 'color: HotPink;', colorMode);
   return (
     <Grid
       as='section'
