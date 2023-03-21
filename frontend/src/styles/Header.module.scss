@@ -91,6 +91,7 @@ $primary-nav-link-color-disabled: hsl(207 25% 45%);
 	gap: 1rem;
 	align-items: center;
 	justify-content: space-around;
+	margin-inline-start: auto;
 	// margin-inline: $margin-bigger;
 
 	.nav_link {
@@ -101,6 +102,7 @@ $primary-nav-link-color-disabled: hsl(207 25% 45%);
 		padding-inline: $padding-tiny;
 		position: relative;
 		text-transform: capitalize;
+		text-decoration: none !important;
 		white-space: nowrap;
 		z-index: 9999;
 

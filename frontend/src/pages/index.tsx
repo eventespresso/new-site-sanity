@@ -1,9 +1,22 @@
-import groq from 'groq'
-import { Link } from '@chakra-ui/next-js'
-import { Box, Button, Grid, GridItem, Heading, HStack, Img, LightMode, Text, VStack, useColorMode } from '@chakra-ui/react'
+import { PortableText } from '@portabletext/react'
+import {
+  Box,
+  Button,
+  Grid,
+  GridItem,
+  Heading,
+  HStack,
+  Icon,
+  Img,
+  LightMode,
+  Text,
+  VStack,
+  useColorMode
+} from '@chakra-ui/react'
+import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 
 import { client } from '../../client'
-// import eventEspressoAdmin from '../../public/event_espresso_admin_screenshot.png'
+import { ExternalLink, InternalLink, PortableTextComponents } from '../components/ui'
 
 import type { GetStaticProps } from 'next'; // GetStaticPaths, GetServerSideProps
 import type { ContentProps } from '../../types';
@@ -70,32 +83,42 @@ const Home: React.FC<ContentProps> = ({ content }) => {
           <Text as='span'>for <Text as='span' color='blue.500'>WordPress</Text></Text>
         </Heading>
       </GridItem>
-      <GridItem area='text'>
-        <VStack fontSize={bodyFontSize}
-        //className={home.hero_text}
-        >
-
-          <Text my={2}>{content?.hero_tagline}</Text>
-        </VStack>
+      <GridItem area='text' fontSize={bodyFontSize}>
+        <PortableText value={content?.hero_tagline} components={PortableTextComponents} />
       </GridItem>
       <GridItem area='screenshot'>
         <Img src={'event_espresso_admin_screenshot.png'} alt='screenshot of event espresso admin page' />
       </GridItem>
       <GridItem area='call-to-actions'>
+        <VStack align='start'>
+          <HStack>
+            <Icon as={FaStar} boxSize={12} color='yellow.500' />
+            <Icon as={FaStar} boxSize={12} color='yellow.500' />
+            <Icon as={FaStar} boxSize={12} color='yellow.500' />
+            <Icon as={FaStar} boxSize={12} color='yellow.500' />
+            <Icon as={FaStarHalfAlt} boxSize={12} color='yellow.500' />
+          </HStack>
+          <ExternalLink href='https://wordpress.org/support/plugin/event-espresso-decaf/reviews/'>
+            4.3 out of 5 stars on wordpress.org
+          </ExternalLink>
+        </VStack>
         <HStack
           // className={home.call_to_actions}
           pt={8}
         >
-          <Link href="/buy-now">
+          <InternalLink href="/buy-now">
             <LightMode>
               <Button as="a" colorScheme='pink' size='lg'>Buy Now</Button>
             </LightMode>
-          </Link>
-          <Link href="/pricing">
+          </InternalLink>
+          <InternalLink href="/pricing">
             <LightMode>
               <Button as="a" colorScheme='purple' size='lg'>See Pricing Plans</Button>
             </LightMode>
-          </Link>
+          </InternalLink>
+          <ExternalLink href='https://wordpress.org/plugins/event-espresso-decaf' hideIcon>
+            <Button as="a" variant='ghost' colorScheme='blue' size='lg'>try decaf for free</Button>
+          </ExternalLink>
         </HStack>
       </GridItem>
     </Grid>

@@ -1,7 +1,6 @@
-// import Image from 'next/image'
-import { Link } from '@chakra-ui/next-js'
-import { Button, Flex, HStack, Img, LightMode, Spacer, Text } from '@chakra-ui/react'
-import { DarkModeToggle } from '../ui'
+import { Button, Flex, HStack, Img, LightMode, Text } from '@chakra-ui/react'
+import { DarkModeToggle, InternalLink } from '../ui'
+
 
 import styles from '@/styles/Header.module.scss'
 
@@ -14,38 +13,39 @@ const fontSize = {
 const Header: React.FC = () => {
 	return (
 		<Flex as='header' alignItems='center' direction={['column', 'column', 'column', 'row']} gap='2'>
-			<Link href="/" className={styles.espresso_logo__link}>
+			<InternalLink href="/" className={styles.espresso_logo__link}>
 				{/* <div className={styles.espresso_logo__img_wrap}> */}
 				<Img src="espresso-cup-logo.png"
 					className={styles.espresso_logo__img}
 					alt="Event Espresso"
 					height='48'
 					width='48'
+					mr={2}
 				/>
 				{/* </div> */}
 				<Text as='span' className={styles.espresso_logo__wordmark} fontSize={fontSize}>event espresso</Text>
-			</Link>
+			</InternalLink>
 			<HStack className={styles.primary_nav} direction={['column', 'row']}>
-				<Link href="/pricing" className={styles.nav_link}>
+				<InternalLink href="/pricing" className={styles.nav_link}>
 					pricing
-				</Link>
-				<Link href="/features" className={styles.nav_link}>
+				</InternalLink>
+				<InternalLink href="/features" className={styles.nav_link}>
 					features
-				</Link>
-				<Link href="/use-cases" className={styles.nav_link}>
+				</InternalLink>
+				<InternalLink href="/use-cases" className={styles.nav_link}>
 					use-cases
-				</Link>
-			</HStack>
+				</InternalLink>
+				{/* </HStack>
 			<Spacer />
-			<HStack className={styles.secondary_nav} direction={['column', 'row']}>
-				<Link href="/account" className={styles.nav_link}>
-					my account
-				</Link>
-				<Link href="/buy-now">
+			<HStack className={styles.secondary_nav} direction={['column', 'row']}> */}
+				<InternalLink href="/account" className={styles.nav_link}>
+					log in
+				</InternalLink>
+				<InternalLink href="/buy-now">
 					<LightMode>
 						<Button as="a" colorScheme='pink' size='sm'>Buy Now</Button>
 					</LightMode>
-				</Link>
+				</InternalLink>
 				<DarkModeToggle />
 			</HStack>
 		</Flex>

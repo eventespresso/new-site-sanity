@@ -11,13 +11,13 @@ $desktop: 1279px;
 $wide-screen: 1679px;
 */
 
-const containerTheme = defineStyleConfig({
-	sizes: {
-		wideScreen: defineStyle({
-			maxW: '80rem',
-		}),
-	},
-});
+// const containerTheme = defineStyleConfig({
+// 	sizes: {
+// 		wideScreen: defineStyle({
+// 			maxW: '80rem',
+// 		}),
+// 	},
+// });
 
 const theme = extendTheme({
 	breakpoints: {
@@ -153,19 +153,71 @@ const theme = extendTheme({
 			'900': '#171B1C',
 		},
 	},
-	components: {
-		Container: containerTheme,
-	},
+	// components: {
+	// 	Container: containerTheme,
+	// },
 	config: {
 		initialColorMode: 'system',
 		useSystemColorMode: true,
 	},
+	sizes: {
+		container: {
+			phone: '27rem', // 432px
+			phoneHrz: '40rem', // 640px
+			tablet: '48rem', // 768px
+			tabletHrz: '64rem', // 768px
+			desktop: '80rem', // 1280px
+			wideScreen: '105rem', // 1680px
+		},
+	},
 	styles: {
 		global: (props: StyleFunctionProps) => ({
+			a: {
+				alignItems: 'center',
+				color: 'blue.500',
+				display: 'inline-flex',
+				_hover: {
+					textDecoration: 'underline',
+				},
+			},
 			body: {
 				fontFamily: 'system-ui, sans-serif',
-				color: mode('grey.800', 'grey.50')(props),
+				color: mode('gray.800', 'gray.50')(props),
 				bg: mode('cyan.500', 'cyan.900')(props),
+			},
+			h1: {
+				fontSize: '7xl',
+				mt: 18,
+				mb: 2,
+			},
+			h2: {
+				fontSize: '5xl',
+				mt: 16,
+				mb: 2,
+			},
+			h3: {
+				fontSize: '3xl',
+				mt: 14,
+				mb: 2,
+			},
+			h4: {
+				fontSize: 'xl',
+				mt: 12,
+				mb: 2,
+			},
+			h5: {
+				fontSize: 'lg',
+				mt: 10,
+				mb: 2,
+			},
+			h6: {
+				fontSize: 'md',
+				mt: 8,
+				mb: 2,
+			},
+			p: {
+				mt: 2,
+				mb: 4,
 			},
 		}),
 	},
