@@ -8,24 +8,24 @@ $primary-nav-link-color-hover: hsl(207 15% 95%);
 $primary-nav-link-color-active: hsl(207 65% 35%);
 $primary-nav-link-color-disabled: hsl(207 25% 45%);
 
-.header {
-	&__wrap {
-		align-items: center;
-		display: flex;
-		flex-direction: column;
-		flex-wrap: wrap;
-		justify-content: flex-start;
+// .header {
+// 	&__wrap {
+// 		align-items: center;
+// 		display: flex;
+// 		flex-direction: column;
+// 		flex-wrap: wrap;
+// 		justify-content: flex-start;
 
-		@media (min-width: $phone) {
-			flex-direction: row;
-		}
-		@media (min-width: $tablet) {
-		}
-		@media (min-width: $tablet-hrz) {
-			flex-wrap: nowrap;
-		}
-	}
-}
+// 		@media (min-width: $phone) {
+// 			flex-direction: row;
+// 		}
+// 		@media (min-width: $tablet) {
+// 		}
+// 		@media (min-width: $tablet-hrz) {
+// 			flex-wrap: nowrap;
+// 		}
+// 	}
+// }
 
 .espresso_logo {
 	&__link {

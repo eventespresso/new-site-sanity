@@ -3,7 +3,7 @@
 @import './global/fonts';
 @import './global/padding_n_margins';
 
-.btn {
+.button {
 	align-items: center;
 	border-radius: 0.25rem;
 	border-style: solid;
@@ -11,23 +11,58 @@
 	box-sizing: border-box;
 	display: inline-flex;
 	flex-direction: row;
-	font-size: 0.75rem;
+	font-size: 0.875rem;
 	height: fit-content;
 	justify-content: center;
 	padding-block: $padding-micro;
 	padding-inline: $padding-smaller;
 	white-space: nowrap;
 
+	&__small {
+		font-size: 0.75rem;
+		padding-block: $padding-nano;
+		padding-inline: $padding-tiny;
+	}
+	&__big {
+		font-size: 1rem;
+		padding-block: $padding-tiny;
+		padding-inline: $padding-small;
+	}
+
 	@media (min-width: $phone) {
-		font-size: 0.875rem;
+		// font-size: 0.875rem;
+		font-size: 1rem;
 		padding-block: $padding-tiny;
 		padding-inline: $padding-small;
 		flex-wrap: nowrap;
+
+		&__small {
+			font-size: 0.875rem;
+			padding-block: $padding-micro;
+			padding-inline: $padding-smaller;
+		}
+		&__big {
+			font-size: 1.25rem;
+			padding-block: $padding-smaller;
+			padding-inline: $padding-default;
+		}
 	}
 	@media (min-width: $tablet) {
-		font-size: 1rem;
+		// font-size: 1rem;
+		font-size: 1.25rem;
 		padding-block: $padding-smaller;
 		padding-inline: $padding-default;
+
+		&__small {
+			font-size: 1rem;
+			padding-block: $padding-tiny;
+			padding-inline: $padding-small;
+		}
+		&__big {
+			font-size: 1.5rem;
+			padding-block: $padding-small;
+			padding-inline: $padding-big;
+		}
 	}
 
 	&__buy_now {
@@ -37,12 +72,13 @@
 		color: white !important;
 		text-transform: uppercase;
 
-		// &:hover,
-		// &:active,
-		// &:focus,
-		// &:focus-visible {
-		// 	// color: white;
-		// }
+		&:hover,
+		&:active,
+		&:focus,
+		&:focus-visible {
+			background: $color-pop-hover;
+			border-color: $color-pop-hover;
+		}
 	}
 
 	&__pricing {
@@ -51,9 +87,17 @@
 		box-shadow: $color-secondary-box-shadow;
 		color: white !important;
 		text-transform: capitalize;
+
+		&:hover,
+		&:active,
+		&:focus,
+		&:focus-visible {
+			background: $color-secondary-hover;
+			border-color: $color-secondary-hover;
+		}
 	}
 
-	+ .btn {
+	+ .button {
 		margin-inline-start: $margin-default;
 	}
 }
