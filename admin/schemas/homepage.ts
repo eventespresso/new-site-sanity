@@ -32,7 +32,12 @@ export default {
 			title: 'Key Features',
 			name: 'keyFeatures',
 			type: 'array',
-			of: [{ type: 'keyFeature' }],
+			of: [
+				{
+					type: 'reference',
+					to: [{ type: 'keyFeature' }],
+				},
+			],
 			validation: (Rule) =>
 				Rule.required().custom((features) => {
 					return Array.isArray(features) && features.length > 2 && features.length < 7
