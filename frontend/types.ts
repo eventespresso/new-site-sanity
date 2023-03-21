@@ -8,9 +8,9 @@ export interface Author {
 }
 
 export interface Homepage {
-	author: Author;
 	slug: Slug;
 	title: string;
+	hero_tagline: string;
 }
 
 export interface ContentProps {

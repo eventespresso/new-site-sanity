@@ -63,7 +63,7 @@ const Home: React.FC<ContentProps> = ({ content }) => {
       templateAreas={areas}
     >
       <GridItem area='heading'>
-        <Heading as='h1' color={color} fontSize={HeadingFontSize}>
+        <Heading as='h1' color={color} fontSize={HeadingFontSize} fontWeight={900}>
           <Text as='span' color='pink.500' fontSize={bestFontSize}>the best</Text>
           <Text as='span'>Event Registration</Text>
           <Text as='span'>& Ticketing Plugin</Text>
@@ -75,12 +75,7 @@ const Home: React.FC<ContentProps> = ({ content }) => {
         //className={home.hero_text}
         >
 
-          <Text>
-            Event Espresso is the best WordPress plugin for online event registration and ticketing - with the best full-time support.
-          </Text>
-          <Text>
-            Easily transform your existing WordPress website into a full-featured event registration and ticketing website.
-          </Text>
+          <Text my={2}>{content?.hero_tagline}</Text>
         </VStack>
       </GridItem>
       <GridItem area='screenshot'>

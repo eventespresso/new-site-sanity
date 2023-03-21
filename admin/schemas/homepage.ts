@@ -20,13 +20,8 @@ export default {
 			},
 		}),
 		defineField({
-			name: 'hero_tagline_1',
-			title: 'Hero Section Tagline 1',
-			type: 'string',
-		}),
-		defineField({
-			name: 'hero_tagline_2',
-			title: 'Hero Section Tagline 2',
+			name: 'hero_tagline',
+			title: 'Hero Section Tagline',
 			type: 'string',
 		}),
 		// defineField({
