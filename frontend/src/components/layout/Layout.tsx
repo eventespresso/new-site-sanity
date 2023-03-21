@@ -5,7 +5,7 @@ import Header from './Header';
 
 export const Layout: React.FC<PropsWithChildren> = ({ children }) => {
 	return (
-		<Container maxW='container.xl'>
+		<Container maxW='105rem'>
 			<Header />
 			{children}
 		</Container>
