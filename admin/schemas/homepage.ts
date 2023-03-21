@@ -31,9 +31,14 @@ export default {
 		defineField({
 			title: 'Key Features',
 			name: 'keyFeatures',
-			type: 'array',
-			of: [{ type: 'keyFeature' }],
-			validation: (Rule) => Rule.required().min(3).max(6),
+			type: 'reference',
+			to: [{ type: 'keyFeature' }],
+			validation: (Rule) =>
+				Rule.required().custom((features) => {
+					return Array.isArray(features) && features.length > 2 && features.length < 7
+						? true
+						: { message: 'Please add 3-6 key features' };
+				}),
 		}),
 		// defineField({
 		// 	name: 'author',
