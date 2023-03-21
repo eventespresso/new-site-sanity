@@ -1,14 +1,32 @@
-import { extendTheme } from '@chakra-ui/react';
+import { defineStyle, defineStyleConfig, extendTheme } from '@chakra-ui/react';
 import { mode } from '@chakra-ui/theme-tools';
 import type { StyleFunctionProps } from '@chakra-ui/styled-system';
 
+/*
+$phone: 427px;
+$phone-hrz: 639px;
+$tablet: 767px;
+$tablet-hrz: 1023px;
+$desktop: 1279px;
+$wide-screen: 1679px;
+*/
+
+const containerTheme = defineStyleConfig({
+	sizes: {
+		wideScreen: defineStyle({
+			maxW: '80rem',
+		}),
+	},
+});
+
 const theme = extendTheme({
 	breakpoints: {
-		sm: '27em', // 432px
-		md: '48em', // 768px
-		lg: '64em', // 1024px
-		xl: '80em', // 1280px
-		'2xl': '96em', // 1536px
+		phone: '27rem', // 432px
+		phoneHrz: '40rem', // 640px
+		tablet: '48rem', // 768px
+		tabletHrz: '64rem', // 768px
+		desktop: '80rem', // 1280px
+		wideScreen: '105rem', // 1680px
 	},
 	colors: {
 		transparent: 'transparent',
@@ -134,6 +152,9 @@ const theme = extendTheme({
 			'800': '#2D3539',
 			'900': '#171B1C',
 		},
+	},
+	components: {
+		Container: containerTheme,
 	},
 	config: {
 		initialColorMode: 'system',
