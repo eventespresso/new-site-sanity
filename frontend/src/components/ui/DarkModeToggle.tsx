@@ -16,10 +16,14 @@ export const DarkModeToggle: React.FC = (props) => {
     <IconButton
       aria-label={label}
       colorScheme='yellow'
-      icon={<Icon as={icon} />}
+      icon={<Icon as={icon} color='yellow.500' />}
       onClick={toggleColorMode}
       size='sm'
       variant='ghost'
+      _hover={{
+        background: "yellow.900",
+        color: "yellow.500",
+      }}
       {...props}
     />
   );
