@@ -9,6 +9,7 @@ export default {
 			name: 'title',
 			title: 'Title',
 			type: 'string',
+			validation: (Rule) => Rule.required().min(30).max(90),
 		}),
 		defineField({
 			name: 'slug',
@@ -18,12 +19,21 @@ export default {
 				source: 'title',
 				maxLength: 96,
 			},
+			validation: (Rule) => Rule.required(),
 		}),
 		defineField({
 			name: 'hero_tagline',
 			title: 'Hero Section Tagline',
 			type: 'array',
 			of: [{ type: 'block' }],
+			validation: (Rule) => Rule.required().min(1).max(3),
+		}),
+		defineField({
+			title: 'Key Features',
+			name: 'keyFeatures',
+			type: 'array',
+			of: [{ type: 'keyFeature' }],
+			validation: (Rule) => Rule.required().min(3).max(6),
 		}),
 		// defineField({
 		// 	name: 'author',
