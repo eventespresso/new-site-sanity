@@ -63,25 +63,25 @@ $primary-nav-link-color-disabled: hsl(207 25% 45%);
 	}
 
 	&__wordmark {
-		color: $color-white;
-		font-size: 1.7rem;
+		// color: $color-white;
+		// font-size: 1.7rem;
 		font-family: $font-groupe;
 		letter-spacing: -3px;
-		margin-inline: $margin-tiny;
+		// margin-inline: $margin-tiny;
 		white-space: nowrap;
 
-		@media (min-width: $phone) {
-			font-size: 2rem;
-			margin-inline: $margin-smaller;
-		}
-		@media (min-width: $tablet) {
-			font-size: 2.5rem;
-			margin-inline: $margin-small;
-		}
-		@media (min-width: $desktop) {
-			font-size: 3rem;
-			margin-inline: $margin-default;
-		}
+		// @media (min-width: $phone) {
+		// 	font-size: 2rem;
+		// 	margin-inline: $margin-smaller;
+		// }
+		// @media (min-width: $tablet) {
+		// 	font-size: 2.5rem;
+		// 	margin-inline: $margin-small;
+		// }
+		// @media (min-width: $desktop) {
+		// 	font-size: 3rem;
+		// 	margin-inline: $margin-default;
+		// }
 	}
 }
 

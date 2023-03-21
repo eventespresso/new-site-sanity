@@ -1,26 +1,31 @@
 // import Image from 'next/image'
 import { Link } from '@chakra-ui/next-js'
-import { Button, Flex, HStack, Img, LightMode, Spacer } from '@chakra-ui/react'
+import { Button, Flex, HStack, Img, LightMode, Spacer, Text } from '@chakra-ui/react'
 import { DarkModeToggle } from '../ui'
 
-import buttons from '@/styles/Buttons.module.scss'
 import styles from '@/styles/Header.module.scss'
+
+const fontSize = {
+	base: '2xl',
+	tablet: '3xl',
+	desktop: '4xl',
+};
 
 const Header: React.FC = () => {
 	return (
-		<Flex as='header' /* className={styles.header__wrap }*/ alignItems='center' direction={['column', 'row']} gap='2'>
+		<Flex as='header' alignItems='center' direction={['column', 'column', 'column', 'row']} gap='2'>
 			<Link href="/" className={styles.espresso_logo__link}>
-				<div className={styles.espresso_logo__img_wrap}>
-					<Img src="espresso-cup-logo.png"
-						className={styles.espresso_logo__img}
-						alt="Event Espresso"
-						height='48'
-						width='48'
-					/>
-				</div>
-				<span className={styles.espresso_logo__wordmark}>event espresso</span>
+				{/* <div className={styles.espresso_logo__img_wrap}> */}
+				<Img src="espresso-cup-logo.png"
+					className={styles.espresso_logo__img}
+					alt="Event Espresso"
+					height='48'
+					width='48'
+				/>
+				{/* </div> */}
+				<Text as='span' className={styles.espresso_logo__wordmark} fontSize={fontSize}>event espresso</Text>
 			</Link>
-			<HStack className={styles.primary_nav}>
+			<HStack className={styles.primary_nav} direction={['column', 'row']}>
 				<Link href="/pricing" className={styles.nav_link}>
 					pricing
 				</Link>
