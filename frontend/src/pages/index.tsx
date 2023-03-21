@@ -1,10 +1,9 @@
 import groq from 'groq'
-import Image from 'next/image'
 import { Link } from '@chakra-ui/next-js'
-import { Container, HStack, useColorMode } from '@chakra-ui/react'
+import { Box, Button, Grid, GridItem, Heading, HStack, Img, LightMode, Text, VStack, colorMode } from '@chakra-ui/react'
 
 import { client } from '../../client'
-import eventEspressoAdmin from '../../public/event_espresso_admin_screenshot.png'
+// import eventEspressoAdmin from '../../public/event_espresso_admin_screenshot.png'
 
 import type { GetStaticProps } from 'next'; // GetStaticPaths, GetServerSideProps
 import type { ContentProps } from '../../types';
@@ -20,33 +19,90 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
 }
 
+const areas = {
+  base: `'heading' 'screenshot' 'text' 'call-to-actions'`,
+  phoneHrz: `'heading screenshot' 'text screenshot' 'call-to-actions screenshot'`
+};
+
+const columns = {
+  base: '1fr',
+  tablet: '30rem 1fr',
+  desktop: '42rem 1fr',
+};
+
+const bestFontSize = {
+  base: 'xl',
+  tablet: '2xl',
+  desktop: '4xl',
+};
+
+const HeadingFontSize = {
+  base: '4xl',
+  tablet: '5xl',
+  desktop: '7xl',
+};
+
+const bodyFontSize = {
+  base: 'lg',
+  tablet: 'xl',
+  desktop: '2xl',
+};
+// Here's the signature
+const color = colorMode === 'light' ? 'gray.800' : 'gray.100';
+console.log('%c colorMode', 'color: HotPink;', colorMode);
 
 const Home: React.FC<ContentProps> = ({ content }) => {
   console.log('%c homepage', 'color: HotPink;', content);
   return (
-    <Container as='section' className='hero_section'>
-      <div className={home.hero}>
-        <h1>
-          <span className={home.the_best}>the best</span>
-          <span className={home.event_reg}>Event Registration</span>
-          <span className={home.ticketing}>& Ticketing Plugin</span>
-          <span>for <span className={home.wordpress}>WordPress</span></span>
-        </h1>
-        <div className={home.hero_text}>
-          <p>Event Espresso is the best WordPress plugin for online event registration and ticketing - with the best full-time support.</p>
-          <p>Easily transform your existing WordPress website into a full-featured event registration and ticketing website.</p>
-        </div>
-        <Image src={eventEspressoAdmin} alt='screenshot of event espresso admin page' />
-        <div className={home.call_to_actions}>
-          <Link href="/buy-now" className={`${buttons.button} ${buttons.button__big} ${buttons.button__buy_now}`}>
-            Buy Now
+    <Grid
+      as='section'
+      className={home.hero_section}
+      gridTemplateColumns={columns}
+      my={8}
+      templateAreas={areas}
+    >
+      <GridItem area='heading'>
+        <Heading as='h1' color={color} fontSize={HeadingFontSize}>
+          <Text as='span' color='pink.500' fontSize={bestFontSize}>the best</Text>
+          <Text as='span'>Event Registration</Text>
+          <Text as='span'>& Ticketing Plugin</Text>
+          <Text as='span'>for <Text as='span' color='blue.500'>WordPress</Text></Text>
+        </Heading>
+      </GridItem>
+      <GridItem area='text'>
+        <VStack fontSize={bodyFontSize}
+        //className={home.hero_text}
+        >
+
+          <Text>
+            Event Espresso is the best WordPress plugin for online event registration and ticketing - with the best full-time support.
+          </Text>
+          <Text>
+            Easily transform your existing WordPress website into a full-featured event registration and ticketing website.
+          </Text>
+        </VStack>
+      </GridItem>
+      <GridItem area='screenshot'>
+        <Img src={'event_espresso_admin_screenshot.png'} alt='screenshot of event espresso admin page' />
+      </GridItem>
+      <GridItem area='call-to-actions'>
+        <HStack
+          // className={home.call_to_actions}
+          pt={8}
+        >
+          <Link href="/buy-now">
+            <LightMode>
+              <Button as="a" colorScheme='pink' size='lg'>Buy Now</Button>
+            </LightMode>
           </Link>
-          <Link href="/pricing" className={`${buttons.button} ${buttons.button__big} ${buttons.button__pricing}`}>
-            See Pricing Plans
+          <Link href="/pricing">
+            <LightMode>
+              <Button as="a" colorScheme='purple' size='lg'>See Pricing Plans</Button>
+            </LightMode>
           </Link>
-        </div>
-      </div>
-    </Container>
+        </HStack>
+      </GridItem>
+    </Grid>
   )
 }
 
