@@ -22,7 +22,8 @@ export default {
 		defineField({
 			name: 'hero_tagline',
 			title: 'Hero Section Tagline',
-			type: 'string',
+			type: 'array',
+			of: [{ type: 'block' }],
 		}),
 		// defineField({
 		// 	name: 'author',
