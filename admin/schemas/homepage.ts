@@ -31,8 +31,8 @@ export default {
 		defineField({
 			title: 'Key Features',
 			name: 'keyFeatures',
-			type: 'reference',
-			to: [{ type: 'keyFeature' }],
+			type: 'array',
+			of: [{ type: 'keyFeature' }],
 			validation: (Rule) =>
 				Rule.required().custom((features) => {
 					return Array.isArray(features) && features.length > 2 && features.length < 7
