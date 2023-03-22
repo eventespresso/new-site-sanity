@@ -1,13 +1,12 @@
 import { PropsWithChildren } from 'react'
-import { Container } from '@chakra-ui/react'
 
-import Header from './Header';
+import { Header } from './Header';
 
 export const Layout: React.FC<PropsWithChildren> = ({ children }) => {
 	return (
-		<Container maxW='105rem'>
+		<>
 			<Header />
 			{children}
-		</Container>
+		</>
 	);
 }
