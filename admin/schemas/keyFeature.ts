@@ -1,4 +1,5 @@
 import { defineField } from 'sanity';
+import { blockLengthValidator } from './validators';
 
 export default {
 	name: 'keyFeature',
@@ -21,10 +22,7 @@ export default {
 			title: 'Description',
 			type: 'array',
 			of: [{ type: 'block' }],
-			validation: (Rule) => [
-				Rule.required().min(30).error('A description of at least 30 characters is required'),
-				Rule.max(480).warning('Description is getting too long. Please edit to be more consice.'),
-			],
+			validation: (Rule) => Rule.custom(blockLengthValidator(30, 300)),
 		}),
 		defineField({
 			name: 'image',
