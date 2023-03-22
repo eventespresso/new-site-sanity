@@ -1,15 +1,15 @@
 import { defineField } from 'sanity';
 
 export default {
-	name: 'keyFeature',
+	name: 'featureSnippet',
 	type: 'document',
-	title: 'Key Feature',
+	title: 'Feature Snippet',
 	description:
-		"A Key Feature is a brief overview of a main feature, value proposition, or selling point, consisting of the features's name, a brief description of the feature, and an image or icon",
+		"A Feature Snippet is a brief overview of a feature consisting of the features's name, a brief description of the feature, an image or icon, and a link to the fully deatiled feature page",
 	fields: [
 		defineField({
 			name: 'title',
-			title: 'Feature',
+			title: 'Feature Snippet',
 			type: 'string',
 			validation: (Rule) => [
 				Rule.required().min(30).error('A title of at least 30 characters is required'),
@@ -34,6 +34,15 @@ export default {
 				hotspot: true,
 			},
 			validation: (Rule) => Rule.required(),
+		}),
+		defineField({
+			title: 'Link',
+			name: 'href',
+			type: 'url',
+			validation: (Rule) =>
+				Rule.uri({
+					scheme: ['https'],
+				}),
 		}),
 	],
 

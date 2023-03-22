@@ -9,7 +9,10 @@ export default {
 			name: 'title',
 			title: 'Title',
 			type: 'string',
-			validation: (Rule) => Rule.required().min(30).max(90),
+			validation: (Rule) => [
+				Rule.required().min(30).error('A title of at least 30 characters is required'),
+				Rule.max(90).error('Titles can not be longer than 90 characters'),
+			],
 		}),
 		defineField({
 			name: 'slug',
@@ -26,18 +29,13 @@ export default {
 			title: 'Hero Section Tagline',
 			type: 'array',
 			of: [{ type: 'block' }],
-			validation: (Rule) => Rule.required().min(1).max(3),
+			validation: (Rule) => Rule.required().min(1).max(3).error('Please add 1-3 blocks of text'),
 		}),
 		defineField({
 			title: 'Key Features',
 			name: 'keyFeatures',
 			type: 'array',
-			of: [
-				{
-					type: 'reference',
-					to: [{ type: 'keyFeature' }],
-				},
-			],
+			of: [{ type: 'keyFeature' }],
 			validation: (Rule) =>
 				Rule.required().custom((features) => {
 					return Array.isArray(features) && features.length > 2 && features.length < 7
