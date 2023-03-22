@@ -23,19 +23,23 @@ body,
 // 	// font-family: $font-sans-serif;
 // }
 
-// a {
-// 	color: $link-color;
-// 	text-decoration: none;
-// 	&:hover {
-// 		color: $link-color-hover;
-// 	}
-// 	&:active {
-// 		color: $link-color-active;
-// 	}
-// 	&:disabled {
-// 		color: $link-color-disabled;
-// 	}
-// }
+a {
+	text-decoration: none;
+	// &:hover {
+	// 	color: $link-color-hover;
+	// }
+	// &:active {
+	// 	color: $link-color-active;
+	// }
+	// &:disabled {
+	// 	color: $link-color-disabled;
+	// }
+	&:hover {
+		button {
+			text-decoration: none !important;
+		}
+	}
+}
 
 @media (prefers-color-scheme: dark) {
 	html {

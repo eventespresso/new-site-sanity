@@ -167,7 +167,7 @@ const theme = extendTheme({
 			tablet: '48rem', // 768px
 			tabletHrz: '64rem', // 768px
 			desktop: '80rem', // 1280px
-			wideScreen: '105rem', // 1680px
+			wideScreen: '96rem', // 1680px
 		},
 	},
 	styles: {
@@ -185,36 +185,36 @@ const theme = extendTheme({
 				color: mode('gray.800', 'gray.50')(props),
 				bg: mode('cyan.500', 'cyan.900')(props),
 			},
-			h1: {
-				fontSize: '7xl',
-				mt: 18,
-				mb: 2,
-			},
-			h2: {
-				fontSize: '5xl',
-				mt: 16,
-				mb: 2,
-			},
-			h3: {
-				fontSize: '3xl',
-				mt: 14,
-				mb: 2,
-			},
-			h4: {
-				fontSize: 'xl',
-				mt: 12,
-				mb: 2,
-			},
-			h5: {
-				fontSize: 'lg',
-				mt: 10,
-				mb: 2,
-			},
-			h6: {
-				fontSize: 'md',
-				mt: 8,
-				mb: 2,
-			},
+			// h1: {
+			// 	fontSize: '7xl',
+			// 	mt: 18,
+			// 	mb: 2,
+			// },
+			// h2: {
+			// 	fontSize: '5xl',
+			// 	mt: 16,
+			// 	mb: 2,
+			// },
+			// h3: {
+			// 	fontSize: '3xl',
+			// 	mt: 14,
+			// 	mb: 2,
+			// },
+			// h4: {
+			// 	fontSize: 'xl',
+			// 	mt: 12,
+			// 	mb: 2,
+			// },
+			// h5: {
+			// 	fontSize: 'lg',
+			// 	mt: 10,
+			// 	mb: 2,
+			// },
+			// h6: {
+			// 	fontSize: 'md',
+			// 	mt: 8,
+			// 	mb: 2,
+			// },
 			p: {
 				mt: 2,
 				mb: 4,
