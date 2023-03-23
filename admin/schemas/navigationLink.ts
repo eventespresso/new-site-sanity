@@ -43,7 +43,7 @@ export default {
 					{ title: 'pink', value: 'pink' },
 					{ title: 'white', value: 'white' },
 				],
-				layout: 'radio',
+				// layout: 'radio',
 			},
 		}),
 		defineField({
@@ -57,10 +57,16 @@ export default {
 					{ title: 'outline', value: 'outline' },
 					{ title: 'text', value: 'text' },
 				],
-				layout: 'radio',
+				// layout: 'radio',
 			},
 		}),
 	],
+
+	initialValue: {
+		href: '/',
+		color: 'blue',
+		variant: 'ghost',
+	},
 
 	preview: {
 		select: {
