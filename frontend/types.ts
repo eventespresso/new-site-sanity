@@ -10,10 +10,6 @@ export interface Author {
 	slug: Slug;
 }
 
-export interface ContentProps {
-	content: Homepage;
-}
-
 export interface FeatureProps {
 	feature: KeyFeature;
 }
@@ -25,7 +21,7 @@ export interface HeroSectionProps {
 	hero_tagline: Array<PortableTextBlock>;
 }
 
-export interface Homepage {
+export interface HomepageProps {
 	slug: Slug;
 	title: string;
 	hero_tagline: Array<PortableTextBlock>;
@@ -37,5 +33,10 @@ export interface KeyFeature {
 	_type: 'keyFeature';
 	description: Array<PortableTextBlock>;
 	image: Image;
+	title: string;
+}
+
+export interface PricingPageProps {
+	slug: Slug;
 	title: string;
 }
