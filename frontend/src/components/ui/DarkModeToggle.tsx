@@ -1,7 +1,11 @@
-import { Icon, IconButton, useColorMode } from '@chakra-ui/react'
+import { Icon, IconButton, type IconButtonProps, useColorMode } from '@chakra-ui/react'
 import { FaMoon, FaSun } from "react-icons/fa";
 
-export const DarkModeToggle: React.FC = (props) => {
+interface toggleProps extends Omit<IconButtonProps, "aria-label"> {
+  className: string;
+}
+
+export const DarkModeToggle = (props: toggleProps) => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   let label = 'Switch to dark mode';
