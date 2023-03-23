@@ -41,9 +41,9 @@ export default {
 				list: [
 					{ title: 'blue', value: 'blue' },
 					{ title: 'pink', value: 'pink' },
+					{ title: 'purple', value: 'purple' },
 					{ title: 'white', value: 'white' },
 				],
-				// layout: 'radio',
 			},
 		}),
 		defineField({
@@ -52,12 +52,11 @@ export default {
 			type: 'string',
 			options: {
 				list: [
-					{ title: 'solid', value: 'solid' },
 					{ title: 'ghost', value: 'ghost' },
 					{ title: 'outline', value: 'outline' },
-					{ title: 'text', value: 'text' },
+					{ title: 'solid', value: 'solid' },
+					{ title: 'text', value: 'link' },
 				],
-				// layout: 'radio',
 			},
 		}),
 	],
