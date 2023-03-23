@@ -63,7 +63,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <CacheProvider>
       <ChakraProvider cookies={pageProps.cookies}>
-        <Layout primary_nav={pageProps.primary_nav_links}>
+        <Layout primary_nav={pageProps.primary_nav_links || []}>
           <Component {...pageProps} />
         </Layout>
       </ChakraProvider>
