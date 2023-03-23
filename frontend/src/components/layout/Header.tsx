@@ -59,26 +59,13 @@ export const Header = ({ primary_nav }: HeaderProps) => {
 					<Flex as='nav' aria-labelledby="mainmenulabel" role="navigation">
 						<h2 id="mainmenulabel" className="visuallyhidden">Main Menu</h2>
 						<List as='ul' className={styles.primary_nav}>
-							<ListItem className={styles.mobile_menu}>
-								<InternalLink href="/pricing" className={styles.nav_link}>
-									<Button colorScheme='blue' variant='ghost'>pricing</Button>
-								</InternalLink>
-							</ListItem>
-							<ListItem className={styles.mobile_menu}>
-								<InternalLink href="/features" className={styles.nav_link}>
-									<Button colorScheme='blue' variant='ghost'>features</Button>
-								</InternalLink>
-							</ListItem>
-							<ListItem className={styles.mobile_menu}>
-								<InternalLink href="/use-cases" className={styles.nav_link}>
-									<Button colorScheme='blue' variant='ghost'>use-cases</Button>
-								</InternalLink>
-							</ListItem>
-							<ListItem className={styles.mobile_menu}>
-								<InternalLink href="/account" className={styles.nav_link}>
-									<Button colorScheme='blue' variant='ghost'>log in</Button>
-								</InternalLink>
-							</ListItem>
+							{primary_nav.map((link) => (
+								<ListItem className={styles.mobile_menu}>
+									<InternalLink href={link.href} className={styles.nav_link}>
+										<Button colorScheme='blue' variant='ghost'>{link.text}</Button>
+									</InternalLink>
+								</ListItem>
+							))}
 							<ListItem className={styles.no_hover}>
 								<InternalLink href="/buy-now">
 									<LightMode>
