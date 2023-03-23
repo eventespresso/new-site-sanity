@@ -13,8 +13,8 @@ export default {
 			title: 'Feature',
 			type: 'string',
 			validation: (Rule) => [
-				Rule.required().min(30).error('A title of at least 30 characters is required'),
-				Rule.max(90).warning('Shorter titles are usually better'),
+				Rule.required().min(6).error('A title of at least 30 characters is required'),
+				Rule.max(36).warning('Shorter titles are usually better'),
 			],
 		}),
 		defineField({
