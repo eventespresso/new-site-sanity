@@ -19,6 +19,7 @@ export default {
 			options: {
 				source: 'name',
 				maxLength: 24,
+				slugify: (input) => input.toLowerCase().replace(/\s+/g, '_').slice(0, 200),
 			},
 			validation: (Rule) => Rule.required(),
 		}),
@@ -38,7 +39,7 @@ export default {
 
 	preview: {
 		select: {
-			title: 'title',
+			title: 'name',
 		},
 	},
 };
