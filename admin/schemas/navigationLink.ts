@@ -17,6 +17,18 @@ export default {
 			],
 		}),
 		defineField({
+			title: 'Link',
+			name: 'href',
+			type: 'url',
+			description: `Can be a path starting with a '/' or a full URL starting with 'https://'`,
+			validation: (Rule) =>
+				Rule.required().uri({
+					allowRelative: true,
+					relativeOnly: false,
+					// scheme: ['https', '/'],
+				}),
+		}),
+		defineField({
 			name: 'icon',
 			title: 'Icon',
 			type: 'string',
@@ -47,18 +59,6 @@ export default {
 				],
 				layout: 'radio',
 			},
-		}),
-		defineField({
-			title: 'Link',
-			name: 'href',
-			type: 'url',
-			description: `Can be a path starting with a '/' or a full URL starting with 'https://'`,
-			validation: (Rule) =>
-				Rule.required().uri({
-					allowRelative: true,
-					relativeOnly: false,
-					// scheme: ['https', '/'],
-				}),
 		}),
 	],
 
