@@ -54,7 +54,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
 
 
 export default function App({ Component, pageProps }: AppProps) {
-  console.log('%c Component', 'color: HotPink;', Component);
+  // console.log('%c Component', 'color: HotPink;', Component);
   console.log('%c pageProps', 'color: HotPink;', pageProps);
   useEffect(() => {
     let slug = pageProps?.content?.slug.current;
@@ -63,7 +63,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <CacheProvider>
       <ChakraProvider cookies={pageProps.cookies}>
-        <Layout primary_nav={[]}>
+        <Layout primary_nav={pageProps.primary_nav_links}>
           <Component {...pageProps} />
         </Layout>
       </ChakraProvider>
