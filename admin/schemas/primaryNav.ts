@@ -8,7 +8,7 @@ export default {
 	fields: [
 		defineField({
 			title: 'Primary Nav Links',
-			name: 'primaryNavLinks',
+			name: 'primary_nav_links',
 			type: 'array',
 			of: [{ type: 'primaryNavLink' }],
 			validation: (Rule) =>
