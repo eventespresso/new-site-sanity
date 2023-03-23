@@ -75,15 +75,14 @@ export default {
 		// }),
 	],
 
-	preview: {
-		select: {
-			title: 'title',
-			author: 'author.name',
-			media: 'mainImage',
-		},
-		prepare(selection: any) {
-			const { author } = selection;
-			return { ...selection, subtitle: author && `by ${author}` };
-		},
-	},
+	// preview: {
+	// 	select: {
+	// 		title: 'title',
+	// 		media: 'mainImage',
+	// 	},
+	// 	prepare(selection: any) {
+	// 		const { author } = selection;
+	// 		return { ...selection, subtitle: author && `by ${author}` };
+	// 	},
+	// },
 };

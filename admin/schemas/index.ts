@@ -9,4 +9,15 @@ import page from './page';
 import primaryNav from './primaryNav';
 import primaryNavLink from './primaryNavLink';
 
-export const schemaTypes = [author, blockContent, category, featurePage, featureSnippet, homepage, keyFeature];
+export const schemaTypes = [
+	author,
+	blockContent,
+	category,
+	featurePage,
+	featureSnippet,
+	homepage,
+	keyFeature,
+	page,
+	primaryNav,
+	primaryNavLink,
+];

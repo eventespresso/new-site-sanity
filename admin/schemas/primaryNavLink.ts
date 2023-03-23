@@ -24,8 +24,10 @@ export default {
 			title: 'Link',
 			name: 'href',
 			type: 'url',
+			description: `Can be a path starting with a '/' or a full URL starting with 'https://'`,
 			validation: (Rule) =>
 				Rule.uri({
+					allowRelative: true,
 					scheme: ['https'],
 				}),
 		}),
