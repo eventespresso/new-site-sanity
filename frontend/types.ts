@@ -14,6 +14,9 @@ export interface ContentProps {
 	content: Homepage;
 }
 
+export interface FeatureProps {
+	feature: KeyFeature;
+}
 export interface FeaturesSectionProps {
 	keyFeatures: Array<KeyFeature>;
 }
