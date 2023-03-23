@@ -161,18 +161,15 @@ $primary-nav-link-color-disabled: hsl(207 25% 45%);
 
 			button {
 				// color: $primary-nav-link-color;
-				font-size: 1rem;
+				font-size: 0.9rem;
 				text-transform: capitalize;
 				text-decoration: none !important;
 				white-space: nowrap;
 				// &:hover {
 				// 	background-color: $color-compliment;
 				// }
-				@media (min-width: $phone) {
-					font-size: 1.1rem;
-				}
 				@media (min-width: $tablet) {
-					font-size: 1.2rem;
+					font-size: 1rem;
 				}
 			}
 
