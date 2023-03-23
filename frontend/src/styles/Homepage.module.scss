@@ -1,6 +1,6 @@
 @import './global/breakpoints';
-@import './global/colors';
-@import './global/fonts';
+// @import './global/colors';
+// @import './global/fonts';
 @import './global/padding_n_margins';
 
 .bg {
@@ -27,7 +27,7 @@
 	// 	// min-height: 32rem;
 	// 	grid-template-areas: 'header' 'screenshot' 'text' 'call-to-actions';
 	// }
-	// @media (min-width > $phone-hrz) {
+	// @media (min-width > $phoneXL) {
 	// 	// min-height: 32rem;
 	// 	grid-template-areas: 'header screenshot' 'text screenshot' 'call-to-actions screenshot';
 	// }

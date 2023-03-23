@@ -1,33 +1,21 @@
-import { defineStyle, defineStyleConfig, extendTheme } from '@chakra-ui/react';
+import { extendTheme } from '@chakra-ui/react';
 import { mode } from '@chakra-ui/theme-tools';
 import type { StyleFunctionProps } from '@chakra-ui/styled-system';
 
-/*
-$phone: 427px;
-$phone-hrz: 639px;
-$tablet: 767px;
-$tablet-hrz: 1023px;
-$desktop: 1279px;
-$wide-screen: 1679px;
-*/
-
-// const containerTheme = defineStyleConfig({
-// 	sizes: {
-// 		wideScreen: defineStyle({
-// 			maxW: '80rem',
-// 		}),
-// 	},
-// });
+export const screenSizes = {
+	phone: '27rem', // 432px
+	phoneXL: '37.5rem', // 600px
+	tablet: '48rem', // 768px
+	tabletXL: '64rem', // 1024px
+	desktop: '80rem', // 1280px
+	wide_screen: '105rem', // 1680px
+};
+// const eeFontFamily =
+// 'Segoe UI,Candara,Bitstream Vera Sans,DejaVu Sans,Bitstream Vera Sans,Trebuchet MS,Verdana,Verdana Ref,sans-serif';
+const eeFontFamily = `'DejaVu Sans','Bitstream Vera Sans','Trebuchet MS','Verdana','Verdana Ref',sans-serif`;
 
 const theme = extendTheme({
-	breakpoints: {
-		phone: '27rem', // 432px
-		phoneHrz: '40rem', // 640px
-		tablet: '48rem', // 768px
-		tabletHrz: '64rem', // 768px
-		desktop: '80rem', // 1280px
-		wideScreen: '105rem', // 1680px
-	},
+	breakpoints: screenSizes,
 	colors: {
 		transparent: 'transparent',
 		black: '#000',
@@ -161,14 +149,7 @@ const theme = extendTheme({
 		useSystemColorMode: true,
 	},
 	sizes: {
-		container: {
-			phone: '27rem', // 432px
-			phoneHrz: '40rem', // 640px
-			tablet: '48rem', // 768px
-			tabletHrz: '64rem', // 768px
-			desktop: '80rem', // 1280px
-			wideScreen: '96rem', // 1680px
-		},
+		container: screenSizes,
 	},
 	styles: {
 		global: (props: StyleFunctionProps) => ({
@@ -180,41 +161,66 @@ const theme = extendTheme({
 					textDecoration: 'underline',
 				},
 			},
-			body: {
-				fontFamily: 'system-ui, sans-serif',
-				color: mode('gray.800', 'gray.50')(props),
-				bg: mode('cyan.500', 'cyan.900')(props),
+			fonts: {
+				heading: 'serif',
+				body: 'serif',
 			},
-			// h1: {
-			// 	fontSize: '7xl',
-			// 	mt: 18,
-			// 	mb: 2,
-			// },
-			// h2: {
-			// 	fontSize: '5xl',
-			// 	mt: 16,
-			// 	mb: 2,
-			// },
-			// h3: {
-			// 	fontSize: '3xl',
-			// 	mt: 14,
-			// 	mb: 2,
-			// },
-			// h4: {
-			// 	fontSize: 'xl',
-			// 	mt: 12,
-			// 	mb: 2,
-			// },
-			// h5: {
-			// 	fontSize: 'lg',
-			// 	mt: 10,
-			// 	mb: 2,
-			// },
-			// h6: {
-			// 	fontSize: 'md',
-			// 	mt: 8,
-			// 	mb: 2,
-			// },
+			body: {
+				// fontFamily: 'system-ui, sans-serif',
+				// fonts: 'system-ui, sans-serif',
+				// fonts: eeFontFamily,
+				fontSize: { base: '14', tablet: '16', wide_screen: '18' },
+				color: mode('gray.600', 'gray.200')(props),
+				bg: mode('white', 'gray.900')(props),
+			},
+			h1: {
+				color: mode('gray.700', 'gray.300')(props),
+				// fonts: eeFontFamily,
+				fontSize: '7xl',
+				fontWeight: 900,
+				// mt: 18,
+				// mb: 2,
+			},
+			h2: {
+				color: mode('gray.700', 'gray.300')(props),
+				// fonts: eeFontFamily,
+				fontSize: '5xl',
+				fontWeight: 900,
+				// mt: 16,
+				// mb: 2,
+			},
+			h3: {
+				color: mode('gray.700', 'gray.300')(props),
+				// fonts: eeFontFamily,
+				fontSize: '3xl',
+				fontWeight: 900,
+				// mt: 14,
+				// mb: 2,
+			},
+			h4: {
+				color: mode('gray.700', 'gray.300')(props),
+				// fonts: eeFontFamily,
+				fontSize: 'xl',
+				fontWeight: 800,
+				// mt: 12,
+				// mb: 2,
+			},
+			h5: {
+				color: mode('gray.700', 'gray.300')(props),
+				// fonts: eeFontFamily,
+				fontSize: 'lg',
+				fontWeight: 700,
+				// mt: 10,
+				// mb: 2,
+			},
+			h6: {
+				color: mode('gray.700', 'gray.300')(props),
+				// fonts: eeFontFamily,
+				fontSize: 'md',
+				fontWeight: 600,
+				// mt: 8,
+				// mb: 2,
+			},
 			p: {
 				mt: 2,
 				mb: 4,
