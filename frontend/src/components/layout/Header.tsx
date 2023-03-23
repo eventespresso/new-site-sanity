@@ -1,12 +1,9 @@
 import { type PropsWithChildren, useMemo } from 'react';
 import {
 	Box,
-	Button,
-	Container,
 	Flex,
 	IconButton,
 	Img,
-	LightMode,
 	List,
 	ListItem,
 	Text,
@@ -14,7 +11,7 @@ import {
 } from '@chakra-ui/react'
 import { SkipNavLink, SkipNavContent } from '@chakra-ui/skip-nav'
 import { FaBars } from "react-icons/fa";
-import { DarkModeToggle, InternalLink } from '../ui'
+import { DarkModeToggle, InternalLink, NavigationLink } from '../ui'
 
 import styles from '@/styles/Header.module.scss'
 
@@ -60,19 +57,14 @@ export const Header = ({ primary_nav }: HeaderProps) => {
 						<h2 id="mainmenulabel" className="visuallyhidden">Main Menu</h2>
 						<List as='ul' className={styles.primary_nav}>
 							{primary_nav.map((link: any) => (
-								<ListItem key={link._key} className={styles.mobile_menu}>
-									<InternalLink href={link.href} className={styles.nav_link}>
-										<Button colorScheme='blue' variant='ghost'>{link.text}</Button>
-									</InternalLink>
-								</ListItem>
+								<NavigationLink
+									key={link._key}
+									href={link.href}
+									color={link.color}
+									variant={link.variant}
+									text={link.text}
+								/>
 							))}
-							<ListItem className={styles.no_hover}>
-								<InternalLink href="/buy-now">
-									<LightMode>
-										<Button colorScheme='pink'>Buy Now</Button>
-									</LightMode>
-								</InternalLink>
-							</ListItem>
 							<ListItem className={styles.menu_toggle}>
 								<IconButton aria-label='Menu' aria-expanded="false" icon={<FaBars />} variant='ghost' />
 							</ListItem>
