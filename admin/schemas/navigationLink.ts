@@ -1,10 +1,10 @@
 import { defineField } from 'sanity';
 
 export default {
-	name: 'primary_nav_link',
+	name: 'navigation_link',
 	type: 'document',
-	title: 'Primary Nav Link',
-	description: "A link displayed in the website's primary navigation in the header",
+	title: 'Navigation Link',
+	description: "A link displayed in the website's navigation in the header or footer",
 	fields: [
 		defineField({
 			name: 'text',
@@ -28,6 +28,7 @@ export default {
 				list: [
 					{ title: 'blue', value: 'blue' },
 					{ title: 'pink', value: 'pink' },
+					{ title: 'white', value: 'white' },
 				],
 				layout: 'radio',
 			},

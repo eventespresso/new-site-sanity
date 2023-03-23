@@ -10,7 +10,7 @@ export default {
 			title: 'Primary Nav Links',
 			name: 'primary_nav_links',
 			type: 'array',
-			of: [{ type: 'primaryNavLink' }],
+			of: [{ type: 'navigation_link' }],
 			validation: (Rule) =>
 				Rule.required().custom((links) => {
 					return Array.isArray(links) && links.length > 2 && links.length < 7
