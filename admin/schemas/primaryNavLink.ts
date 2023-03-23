@@ -1,7 +1,7 @@
 import { defineField } from 'sanity';
 
 export default {
-	name: 'primaryNavLink',
+	name: 'primary_nav_link',
 	type: 'document',
 	title: 'Primary Nav Link',
 	description: "A link displayed in the website's primary navigation in the header",
@@ -19,6 +19,32 @@ export default {
 			name: 'icon',
 			title: 'Icon',
 			type: 'string',
+		}),
+		defineField({
+			name: 'color',
+			title: 'Color Scheme',
+			type: 'string',
+			options: {
+				list: [
+					{ title: 'blue', value: 'blue' },
+					{ title: 'pink', value: 'pink' },
+				],
+				layout: 'radio',
+			},
+		}),
+		defineField({
+			name: 'variant',
+			title: 'Variant',
+			type: 'string',
+			options: {
+				list: [
+					{ title: 'solid', value: 'solid' },
+					{ title: 'ghost', value: 'ghost' },
+					{ title: 'outline', value: 'outline' },
+					{ title: 'text', value: 'text' },
+				],
+				layout: 'radio',
+			},
 		}),
 		defineField({
 			title: 'Link',
