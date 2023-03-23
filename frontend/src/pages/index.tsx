@@ -6,7 +6,7 @@ import type { HomepageProps } from '../../types';
 
 export const getStaticProps: GetStaticProps = async (props) => {
   const nav = await getPrimaryNav(props);
-  console.log('%c getHomepageProps', 'color: HotPink;', nav);
+  console.log('%c getPrimaryNav', 'color: HotPink;', nav);
   const home = await getHomepageProps(props)
   console.log('%c getHomepageProps', 'color: HotPink;', home);
   return {
