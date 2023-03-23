@@ -59,8 +59,8 @@ export const Header = ({ primary_nav }: HeaderProps) => {
 					<Flex as='nav' aria-labelledby="mainmenulabel" role="navigation">
 						<h2 id="mainmenulabel" className="visuallyhidden">Main Menu</h2>
 						<List as='ul' className={styles.primary_nav}>
-							{primary_nav.map((link) => (
-								<ListItem className={styles.mobile_menu}>
+							{primary_nav.map((link: any) => (
+								<ListItem key={link._key} className={styles.mobile_menu}>
 									<InternalLink href={link.href} className={styles.nav_link}>
 										<Button colorScheme='blue' variant='ghost'>{link.text}</Button>
 									</InternalLink>
