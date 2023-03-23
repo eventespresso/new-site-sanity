@@ -6,8 +6,8 @@ import featureSnippet from './featureSnippet';
 import homepage from './homepage';
 import keyFeature from './keyFeature';
 import navigationLink from './navigationLink';
+import navigationMenu from './navigationMenu';
 import page from './page';
-import primaryNav from './primaryNav';
 
 export const schemaTypes = [
 	author,
@@ -18,6 +18,6 @@ export const schemaTypes = [
 	homepage,
 	keyFeature,
 	navigationLink,
+	navigationMenu,
 	page,
-	primaryNav,
 ];
