@@ -1,6 +1,6 @@
 import { ChakraProvider, cookieStorageManagerSSR, localStorageManager } from '@chakra-ui/react';
 import type { ReactNode } from 'react';
-import type { GetServerSideProps } from 'next'
+// import type { GetServerSideProps } from 'next'
 
 import theme from '../../styles/theme'
 
@@ -23,13 +23,15 @@ export const Chakra: React.FC<ChakraProps> = ({ cookies, children }) => {
 	)
 }
 
-// also export a reusable function getServerSideProps
-export const getServerSideProps: GetServerSideProps = async ({ req }) => {
-	return {
-		props: {
-			// first time users will not have any cookies and you may not return
-			// undefined here, hence ?? is necessary
-			cookies: req.headers.cookie ?? '',
-		},
-	}
-}
+// // also export a reusable function getServerSideProps
+// const getServerSideProps: GetServerSideProps = async ({ req }) => {
+// 	return {
+// 		props: {
+// 			// first time users will not have any cookies and you may not return
+// 			// undefined here, hence ?? is necessary
+// 			cookies: req.headers.cookie ?? '',
+// 		},
+// 	}
+// }
+
+// export { GetServerSideProps };

@@ -1,11 +1,14 @@
-import { PropsWithChildren } from 'react'
+import type { PropsWithChildren } from 'react'
 
 import { Header } from './Header';
 
-export const Layout: React.FC<PropsWithChildren> = ({ children }) => {
+interface LayoutProps extends PropsWithChildren {
+	primary_nav: any
+}
+export const Layout = ({ children, primary_nav }: LayoutProps) => {
 	return (
 		<>
-			<Header />
+			<Header primary_nav={primary_nav} />
 			{children}
 		</>
 	);
