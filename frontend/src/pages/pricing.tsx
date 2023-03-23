@@ -3,7 +3,7 @@ import groq from 'groq'
 import { client } from '../../client'
 
 import type { GetStaticProps } from 'next';
-import type { ContentProps } from '../../types';
+import type { PricingPageProps } from '../../types';
 
 import layout from '@/styles/Layout.module.scss'
 
@@ -22,14 +22,14 @@ export const getStaticProps: GetStaticProps = async (context) => {
 }
 
 
-const Home: React.FC<ContentProps> = (props) => {
+const Home: React.FC<PricingPageProps> = (props) => {
   console.log('%c props', 'color: HotPink;', props);
   return (
     <>
       {/* ${layout.full_width} */}
       {/* <div className={`${home.bg} `}></div> */}
       <section className={`${layout.container}`}>
-        <h1>title: {props?.content?.title}</h1>
+        <h1>title: {props?.title}</h1>
       </section>
     </>
   )

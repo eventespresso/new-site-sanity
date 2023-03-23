@@ -1,23 +1,25 @@
-import { client } from '../../client'
+import { getHomepageProps, getPrimaryNav } from '../queries'
 import { FeaturesSection, HeroSection } from '../components/layout'
 
 import type { GetStaticProps } from 'next'; // GetStaticPaths, GetServerSideProps
-import type { ContentProps } from '../../types';
+import type { HomepageProps } from '../../types';
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  console.log('%c context', 'color: HotPink;', context);
-  const content = await client.fetch(`*[_type == "homepage"][0]`);
+export const getStaticProps: GetStaticProps = async (props) => {
+  const nav = await getPrimaryNav(props);
+  console.log('%c getHomepageProps', 'color: HotPink;', nav);
+  const home = await getHomepageProps(props)
+  console.log('%c getHomepageProps', 'color: HotPink;', home);
   return {
-    props: { content }
-  }
+    props: { ...home, ...nav }
+  };
 }
 
-const Home: React.FC<ContentProps> = ({ content }) => {
+const Home: React.FC<HomepageProps> = ({ hero_tagline, keyFeatures }) => {
   // console.log('%c homepage', 'color: HotPink;', content);
   return (
     <>
-      <HeroSection hero_tagline={content.hero_tagline} />
-      <FeaturesSection keyFeatures={content.keyFeatures} />
+      <HeroSection hero_tagline={hero_tagline} />
+      <FeaturesSection keyFeatures={keyFeatures} />
     </>
   )
 }
