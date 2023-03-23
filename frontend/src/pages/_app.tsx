@@ -1,11 +1,43 @@
 import type { AppProps } from 'next/app'
 import { useEffect } from 'react';
 import { CacheProvider } from '@chakra-ui/next-js'
-import { Chakra as ChakraProvider, getServerSideProps, Layout } from '../components/layout';
+import type { GetServerSideProps } from 'next'; // GetStaticPaths, GetServerSideProps
+
+import { Chakra as ChakraProvider, Layout } from '../components/layout';
+import { client } from '../../client'
+
 
 import '../styles/globals.scss'
 
+
+// const getServerSideProps: GetServerSideProps = async (context) => {
+//   const data = await client.fetch(`*[_type == "primaryNav"][0]`);
+//   console.log('%c primaryNav', 'color: HotPink;', data);
+//   return {
+//     props: { data }
+//   }
+// }
+
+
+// also export a reusable function getServerSideProps
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+  const data = await client.fetch(`*[_type == "primaryNav"][0]`);
+  console.log('%c primaryNav', 'color: HotPink;', data);
+
+  return {
+    props: {
+      // first time users will not have any cookies and you may not return
+      // undefined here, hence ?? is necessary
+      cookies: req.headers.cookie ?? '',
+      data,
+    },
+  }
+}
+
+
 export default function App({ Component, pageProps }: AppProps) {
+  console.log('%c Component', 'color: HotPink;', Component);
+  console.log('%c pageProps', 'color: HotPink;', pageProps);
   useEffect(() => {
     let slug = pageProps?.content?.slug.current;
     document.body.classList.add(slug)
@@ -13,7 +45,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <CacheProvider>
       <ChakraProvider cookies={pageProps.cookies}>
-        <Layout>
+        <Layout primary_nav={[]}>
           <Component {...pageProps} />
         </Layout>
       </ChakraProvider>
@@ -22,4 +54,4 @@ export default function App({ Component, pageProps }: AppProps) {
 }
 
 // re-export the reusable `getServerSideProps` function
-export { getServerSideProps };
+export { GetServerSideProps };
