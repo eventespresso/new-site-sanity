@@ -1,7 +1,7 @@
 import { defineField } from 'sanity';
 
 export default {
-	name: 'primaryNav',
+	name: 'primary_nav',
 	type: 'document',
 	title: 'Primary Nav',
 	description: "The website's primary navigation displayed in the header",
