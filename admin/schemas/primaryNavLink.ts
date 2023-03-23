@@ -26,8 +26,9 @@ export default {
 			type: 'url',
 			description: `Can be a path starting with a '/' or a full URL starting with 'https://'`,
 			validation: (Rule) =>
-				Rule.uri({
+				Rule.required().uri({
 					allowRelative: true,
+					relativeOnly: false,
 					scheme: ['https'],
 				}),
 		}),
