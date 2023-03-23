@@ -5,6 +5,7 @@ export default {
 	type: 'document',
 	title: 'Navigation Link',
 	description: "A link displayed in the website's navigation in the header or footer",
+	hidden: true,
 	fields: [
 		defineField({
 			name: 'text',
