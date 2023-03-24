@@ -59,6 +59,25 @@ export default {
 				],
 			},
 		}),
+		defineField({
+			name: 'has_submenu',
+			title: 'Has SubMenu?',
+			type: 'boolean',
+			initialValue: false,
+		}),
+		defineField({
+			name: 'submenu',
+			title: 'SubMenu',
+			type: 'array',
+			hidden: ({ parent }) => parent?.has_submenu,
+			of: [{ type: 'navigation_link' }],
+			validation: (Rule) =>
+				Rule.required().custom((links) => {
+					return Array.isArray(links) && links.length > 0 && links.length < 13
+						? true
+						: { message: 'Please add 1-12 key nav links' };
+				}),
+		}),
 	],
 
 	initialValue: {
