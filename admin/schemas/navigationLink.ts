@@ -73,7 +73,7 @@ export default {
 			name: 'submenu',
 			title: 'SubMenu',
 			type: 'array',
-			hidden: ({ parent }) => parent?.has_submenu,
+			hidden: ({ parent }) => !parent?.has_submenu,
 			of: [{ type: 'navigation_link' }],
 			validation: (Rule) =>
 				Rule.required().custom((links) => {
