@@ -34,28 +34,32 @@ export default {
 			type: 'string',
 		}),
 		defineField({
+			name: 'variant',
+			title: 'Text Link or Button Style?',
+			type: 'string',
+			description: `Deafults to "link" which will display menu item as a text link. Button styles include:
+			- "solid" standard fully coloured button style,
+			- "outline" button with coloured border but transparent background,
+			- "ghost" text link with button-like hover effects.`,
+			initialValue: 'link',
+			options: {
+				list: [
+					{ title: 'text link', value: 'link' },
+					{ title: 'button: solid', value: 'solid' },
+					{ title: 'button: outline', value: 'outline' },
+					{ title: 'button: ghost', value: 'ghost' },
+				],
+			},
+		}),
+		defineField({
 			name: 'color',
-			title: 'Color Scheme',
+			title: 'Button Color Scheme',
 			type: 'string',
 			options: {
 				list: [
 					{ title: 'blue', value: 'blue' },
 					{ title: 'pink', value: 'pink' },
 					{ title: 'purple', value: 'purple' },
-					{ title: 'white', value: 'white' },
-				],
-			},
-		}),
-		defineField({
-			name: 'variant',
-			title: 'Variant',
-			type: 'string',
-			options: {
-				list: [
-					{ title: 'ghost', value: 'ghost' },
-					{ title: 'outline', value: 'outline' },
-					{ title: 'solid', value: 'solid' },
-					{ title: 'text', value: 'link' },
 				],
 			},
 		}),
@@ -83,7 +87,7 @@ export default {
 	initialValue: {
 		href: '/',
 		color: 'blue',
-		variant: 'ghost',
+		variant: 'link',
 	},
 
 	preview: {
