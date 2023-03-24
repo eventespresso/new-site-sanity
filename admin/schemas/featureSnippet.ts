@@ -12,7 +12,7 @@ export default {
 			title: 'Feature Snippet',
 			type: 'string',
 			validation: (Rule) => [
-				Rule.required().min(30).error('A title of at least 30 characters is required'),
+				Rule.required().min(12).error('A title of at least 12 characters is required'),
 				Rule.max(90).warning('Shorter titles are usually better'),
 			],
 		}),

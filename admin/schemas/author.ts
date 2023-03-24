@@ -9,6 +9,7 @@ export default defineType({
 			name: 'name',
 			title: 'Name',
 			type: 'string',
+			validation: (Rule) => Rule.required().min(3).error('Name must of at least 3 characters is required'),
 		}),
 		defineField({
 			name: 'slug',
@@ -18,6 +19,7 @@ export default defineType({
 				source: 'name',
 				maxLength: 96,
 			},
+			validation: (Rule) => Rule.required(),
 		}),
 		defineField({
 			name: 'image',

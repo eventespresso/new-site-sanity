@@ -9,6 +9,7 @@ import { client } from '../../client'
 
 
 import '../styles/globals.scss'
+import '../styles/header.scss'
 
 
 // const getServerSideProps: GetServerSideProps = async (context) => {

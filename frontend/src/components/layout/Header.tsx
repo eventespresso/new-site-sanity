@@ -2,26 +2,33 @@ import { type PropsWithChildren, useMemo } from 'react';
 import {
 	Box,
 	Flex,
+	Icon,
 	IconButton,
 	Img,
 	List,
-	ListItem,
+	HStack,
 	Text,
-	useColorModeValue
+	useColorModeValue,
+	useDisclosure,
 } from '@chakra-ui/react'
 import { SkipNavLink, SkipNavContent } from '@chakra-ui/skip-nav'
 import { FaBars } from "react-icons/fa";
-import { DarkModeToggle, InternalLink, NavigationLink } from '../ui'
+import { DarkModeToggle, InternalLink, Navigation } from '../ui'
 
-import styles from '@/styles/Header.module.scss'
+// import styles from '@/styles/Header.module.scss'
 
 interface HeaderProps extends PropsWithChildren {
 	primary_nav: any
 }
 
 export const Header = ({ primary_nav }: HeaderProps) => {
-	console.log('%c primary_nav', 'color: HotPink;', primary_nav);
+
+	const { getDisclosureProps, getButtonProps } = useDisclosure();
+	const buttonProps = getButtonProps()
+	const disclosureProps = getDisclosureProps()
+
 	const bg = useColorModeValue('cyan.400', 'cyan.900');
+	const colorMode = useColorModeValue('light', 'dark');
 
 	const flexDir = useMemo(
 		() => { return { phone: 'column', tablet: 'row' } },
@@ -41,21 +48,30 @@ export const Header = ({ primary_nav }: HeaderProps) => {
 	return (
 		<>
 			<SkipNavLink>Skip to content</SkipNavLink>
-			<Box as='header' bg={bg} className={styles.header__wrap}>
-				<Flex className={styles.header}  >
-					<InternalLink href="/" className={styles.home__link}>
+			<Box as='header' bg={bg} className='header__wrap'>
+				<Flex className={`header ${colorMode}`}  >
+					{/* <IconButton
+						aria-label='Menu'
+						aria-expanded="false"
+						className='menu_toggle'
+						icon={<Icon as={FaBars} boxSize='8' />}
+						variant='ghost'
+						{...buttonProps}
+					/> */}
+					<InternalLink href="/" className='home__link'>
 						<Img src="espresso-cup-logo.png"
-							className={styles.home__logo}
+							className='home__logo'
 							alt="Event Espresso"
 							height='48'
 							width='48'
 							mr={2}
 						/>
-						<Text as='span' className={styles.home__wordmark} fontSize={fontSize}>event espresso</Text>
+						<Text as='span' className='home__wordmark' fontSize={fontSize}>event espresso</Text>
 					</InternalLink>
-					<Flex as='nav' aria-labelledby="mainmenulabel" role="navigation">
+					<Navigation menu_items={primary_nav} />
+					{/* <Flex as='nav' aria-labelledby="mainmenulabel" role="navigation" {...disclosureProps}>
 						<h2 id="mainmenulabel" className="visuallyhidden">Main Menu</h2>
-						<List as='ul' className={styles.primary_nav}>
+						<List as='ul' className='primary_nav'>
 							{primary_nav.map((link: any) => (
 								<NavigationLink
 									key={link._key}
@@ -65,13 +81,12 @@ export const Header = ({ primary_nav }: HeaderProps) => {
 									text={link.text}
 								/>
 							))}
-							<ListItem className={styles.menu_toggle}>
-								<IconButton aria-label='Menu' aria-expanded="false" icon={<FaBars />} variant='ghost' />
-							</ListItem>
 						</List>
-					</Flex>
+					</Flex> */}
+					<DarkModeToggle className='dark_mode_toggle' />
 				</Flex>
-				<DarkModeToggle className={styles.dark_mode_toggle} />
+				{/* <Box className={`menu_mobile ${colorMode}`}>
+				</Box> */}
 			</Box>
 			<SkipNavContent />
 		</>

@@ -1,27 +1,17 @@
-import { type PropsWithChildren } from 'react';
-import {
-	Button,
-	LightMode,
-	ListItem,
-} from '@chakra-ui/react'
-import { InternalLink } from '../ui'
+import { Icon, MenuItem } from '@chakra-ui/react'
+import type { MenuItemProps } from '../../../types'
 
-import styles from '@/styles/Header.module.scss'
+type NavigationLinkProps = Omit<MenuItemProps, 'submenu' | 'has_submenu'>
 
-interface NavigationLinkProps extends PropsWithChildren {
-	color: string;
-	href: string;
-	text: string;
-	variant: string;
-}
-export const NavigationLink = ({ color, href, text, variant }: NavigationLinkProps) => {
+export const NavigationLink = ({ href, text, color = 'blue', variant = 'ghost', icon = null }: NavigationLinkProps) => {
 	return (
-		<ListItem className={styles.mobile_menu}>
-			<InternalLink href={href} className={styles.nav_link}>
-				<LightMode>
-					<Button colorScheme={color} variant={variant}>{text}</Button>
-				</LightMode>
-			</InternalLink>
-		</ListItem>
+		<MenuItem as='a'
+			className={`nav_link ${color} ${variant}`}
+			color={color}
+			href={href}
+			icon={icon ? <Icon as={icon} /> : undefined}
+		>
+			{text}
+		</MenuItem>
 	);
 }

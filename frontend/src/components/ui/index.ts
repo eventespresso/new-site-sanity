@@ -3,5 +3,8 @@ export { ExternalLink } from './ExternalLink';
 export { Feature } from './Feature';
 export { FeatureCard } from './FeatureCard';
 export { InternalLink } from './InternalLink';
+export { Navigation } from './Navigation';
 export { NavigationLink } from './NavigationLink';
+export { NavigationMenuItem } from './NavigationMenuItem';
+export { NavigationSubmenu } from './NavigationSubmenu';
 export { PortableTextComponents } from './PortableTextComponents';

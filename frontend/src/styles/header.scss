@@ -31,19 +31,36 @@ $primary-nav-link-color-disabled: hsl(207 25% 45%);
 	box-sizing: border-box;
 	flex-direction: column;
 	margin-inline: auto;
+	width: 100%;
 	max-width: $desktop;
 	padding: var(--chakra-space-2);
-	width: 100%;
+	transition: top 500ms ease-in-out;
 
-	@media (min-width: $tabletXL) {
+	@media (min-width: $tablet) {
+		height: fit-content;
 		flex-direction: row;
+		position: relative;
 	}
 
 	&__wrap {
+		height: var(--chakra-space-12);
+		inset-block-start: 0;
+		overflow: hidden;
 		padding: 0;
-		position: sticky;
+		position: fixed;
+		// position: sticky;
 		top: 0;
-		transition: top 500ms ease-in-out;
+		width: 100%;
+		z-index: var(--chakra-zIndices-modal);
+
+		@media (min-width: $tablet) {
+			height: fit-content;
+			position: relative;
+		}
+
+		&.active {
+			height: 100%;
+		}
 	}
 
 	&.scroll-up,
@@ -61,7 +78,7 @@ $primary-nav-link-color-disabled: hsl(207 25% 45%);
 		flex-direction: column;
 		// gap: var(--chakra-space-1);
 
-		@media (min-width: $tabletXL) {
+		@media (min-width: $tablet) {
 			flex-direction: row;
 			margin-inline-start: auto;
 		}
@@ -161,22 +178,40 @@ $primary-nav-link-color-disabled: hsl(207 25% 45%);
 			}
 
 			button {
-				color: $primary-nav-link-color;
+				color: var(--chakra-colors-white);
 				font-size: 0.9rem;
 				text-transform: capitalize;
 				text-decoration: none !important;
 				white-space: nowrap;
-				&.blue:hover {
-					background-color: var(--chakra-colors-red-500);
+				&.blue {
+					&:hover {
+						background-color: var(--chakra-colors-blue-600);
+					}
+					&.ghost:hover {
+						background-color: var(--chakra-colors-blue-500);
+					}
 				}
-				&.pink:hover {
-					background-color: var(--chakra-colors-pink-500);
+				&.pink {
+					:hover {
+						background-color: var(--chakra-colors-pink-600);
+					}
+					&.ghost:hover {
+						background-color: var(--chakra-colors-pink-500);
+					}
 				}
-				&.purple:hover {
-					background-color: var(--chakra-colors-purple-500);
+				&.purple {
+					:hover {
+						background-color: var(--chakra-colors-purple-600);
+					}
+					&.ghost:hover {
+						background-color: var(--chakra-colors-purple-500);
+					}
 				}
-				&.white:hover {
-					background-color: var(--chakra-colors-white);
+				&.white {
+					color: var(--chakra-colors-blue-500);
+					:hover {
+						background-color: var(--chakra-colors-white);
+					}
 				}
 				@media (min-width: $tablet) {
 					font-size: 1rem;
@@ -227,21 +262,59 @@ $primary-nav-link-color-disabled: hsl(207 25% 45%);
 		// 	// 	}
 		// 	// }
 		// }
+	}
 
+	.menu_toggle {
+		color: var(--chakra-colors-white);
+		display: block;
+		position: absolute;
+		inset-block-start: var(--chakra-space-2);
+		inset-inline-end: var(--chakra-space-1);
+		margin: 0 !important;
+		height: var(--chakra-sizes-6);
+		width: var(--chakra-sizes-6);
+
+		@media (min-width: $tablet) {
+			display: none;
+		}
+	}
+
+	&.dark {
 		.menu_toggle {
-			display: block;
+			color: var(--chakra-colors-gray-200);
+		}
 
-			@media (min-width: $tablet) {
-				display: none;
-			}
+		background: var(--chakra-colors-blackAlpha-800);
+		@media (min-width: $tablet) {
+			background: none;
 		}
 	}
 }
 
+// .menu_mobile {
+// 	// background: var(--chakra-colors-whiteAlpha-800);
+// 	position: fixed;
+// 	inset-block-start: 0;
+// 	height: var(--chakra-sizes-10);
+// 	width: 100%;
+
+// 	&.dark {
+// 		// background: var(--chakra-colors-blackAlpha-800);
+
+// 		.menu_toggle {
+// 			color: var(--chakra-colors-gray-200);
+// 		}
+// 	}
+
+// 	@media (min-width: $tablet) {
+// 		display: none;
+// 	}
+// }
+
 .dark_mode_toggle {
-	position: absolute;
+	position: fixed;
 	inset-block-end: var(--chakra-space-1);
-	inset-inline-start: var(--chakra-space-1);
+	inset-inline-end: var(--chakra-space-1);
 	// @media (min-width: $phone) {
 	// 	top: 0.75rem;
 	// 	right: 0.75rem;

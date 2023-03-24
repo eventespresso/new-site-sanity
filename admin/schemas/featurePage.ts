@@ -11,7 +11,10 @@ export default {
 			name: 'title',
 			title: 'Feature Page Title',
 			type: 'string',
-			validation: (Rule) => Rule.required().min(30).max(90),
+			validation: (Rule) => [
+				Rule.required().min(6).error('A title of at least 6 characters is required'),
+				Rule.max(90).warning('Shorter titles are usually better'),
+			],
 		}),
 		defineField({
 			name: 'description',

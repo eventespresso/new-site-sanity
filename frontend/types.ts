@@ -1,3 +1,4 @@
+import type { PropsWithChildren } from 'react';
 import type { BlockDefinition, Image, Slug } from '@sanity/types';
 import type { PortableTextBlock } from '@portabletext/types';
 
@@ -34,6 +35,16 @@ export interface KeyFeature {
 	description: Array<PortableTextBlock>;
 	image: Image;
 	title: string;
+}
+
+export interface MenuItemProps {
+	color?: string;
+	has_submenu: boolean;
+	href: string;
+	icon?: any;
+	submenu?: Array<MenuItemProps>;
+	text: string;
+	variant?: string;
 }
 
 export interface PricingPageProps {
