@@ -30,7 +30,9 @@ export const Navigation = ({ menu_items }: NavigationProps) => {
 				{...buttonProps}
 			/>
 			<List as='ul' className='primary_nav'>
-				{menu_items.map((menu_item: any) => <NavigationMenuItem key={menu_item._key} menu_item={menu_item} />)}
+				{menu_items && menu_items.map((menu_item: any) => (
+					<NavigationMenuItem key={menu_item._key} menu_item={menu_item} />
+				))}
 			</List>
 		</Menu>
 	);

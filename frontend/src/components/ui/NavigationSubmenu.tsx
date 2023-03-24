@@ -8,9 +8,10 @@ import {
 } from '@chakra-ui/react'
 import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons'
 import { NavigationLink } from './index'
+import type { MenuItemProps } from '../../../types'
 
 interface NavigationSubmenuProps extends PropsWithChildren {
-	menu_item: any
+	menu_item: MenuItemProps
 }
 export const NavigationSubmenu = ({ menu_item }: NavigationSubmenuProps) => {
 	const { isOpen, onOpen, onClose } = useDisclosure()
@@ -24,7 +25,7 @@ export const NavigationSubmenu = ({ menu_item }: NavigationSubmenuProps) => {
 				{menu_item.text} {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
 			</MenuButton>
 			<MenuList className='primary_nav' onMouseEnter={onOpen} onMouseLeave={onClose}>
-				{menu_item.sub_menu.map((sub_menu_item: any) => {
+				{menu_item.submenu && menu_item.submenu.map((sub_menu_item: any) => {
 					return (
 						<NavigationLink
 							key={sub_menu_item._key}

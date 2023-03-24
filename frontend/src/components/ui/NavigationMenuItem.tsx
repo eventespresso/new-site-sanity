@@ -8,7 +8,7 @@ interface NavigationMenuItemProps extends PropsWithChildren {
 }
 
 export const NavigationMenuItem = ({ menu_item }: NavigationMenuItemProps) => {
-	return menu_item.has_submenu
+	return menu_item.has_submenu && menu_item.submenu
 		? <NavigationSubmenu menu_item={menu_item} />
 		: <NavigationLink
 			color={menu_item.color}
