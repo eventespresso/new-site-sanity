@@ -13,7 +13,7 @@ export default {
 			type: 'string',
 			validation: (Rule) => [
 				Rule.required().min(3).error('A link of at least 3 characters is required'),
-				Rule.max(12).warning('Shorter link text is usually better'),
+				Rule.max(24).warning('Shorter link text is usually better'),
 			],
 		}),
 		defineField({
