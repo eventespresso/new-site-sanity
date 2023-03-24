@@ -76,8 +76,8 @@ export default {
 			hidden: ({ parent }) => !parent?.has_submenu,
 			of: [{ type: 'navigation_link' }],
 			validation: (Rule) =>
-				Rule.required().custom((links) => {
-					return Array.isArray(links) && links.length < 13
+				Rule.custom((links) => {
+					return !Array.isArray(links) || links.length < 13
 						? true
 						: { message: 'No more than 12 key nav links please' };
 				}),
